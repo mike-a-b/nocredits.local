@@ -1,0 +1,181 @@
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    //gap: 10px;
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 14px;
+    max-width: 468px;
+    height: 611px;
+    padding:45px 48px 45px;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    .modal-title {
+        font-family: 'Forum';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        text-transform: uppercase;
+        color: #2C4D84;
+        align-self: flex-start;
+        justify-self: stretch;
+        margin-bottom: 40px;
+    }
+    .form-control {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        align-items: flex-end;
+        //justify-content: stretch;
+        justify-content:center;
+        font-family: Verdana, sans-serif;
+        position: relative;
+        height: 58px;
+        border: 1px solid #DFE7EB;
+        border-radius: 8px;
+        padding:3px;
+        box-sizing: border-box;
+
+        input[type="text"] {
+            box-sizing: border-box;
+            padding: 15px 15px 15px 15px;
+            font-size: 16px;
+            color: black;
+            font-family: inherit;
+            cursor: pointer;
+            width: 100%;
+            outline: none;
+            border: none;
+            flex:1 1 100%;
+            &::placeholder {
+                font-family: 'Gilroy';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                color: #8C8C8D;
+            }
+
+        }
+
+        label {
+            //margin-bottom: -20px;
+            position:absolute;
+            cursor: pointer;
+            display: block;
+            //left: 15px;
+            top: 3px;
+            left: 20px;
+            font-family: 'Gilroy', Serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            color:#495057;
+            line-height: 14px;
+        }
+
+    }
+    .form-control.tel2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        div {
+            width:30%;
+        }
+    }
+    .btn {
+        width: 100%;
+        font-family: 'Gilroy', Serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color:#fff;
+        padding: 17px 16px;
+        border-radius:12px;
+    }
+    .modal__question__label {
+        background: url("../images/flag_icon.png");
+        width: 49px;
+        height: 38px;
+        background-size: contain;
+        position:absolute;
+        cursor: pointer;
+        display: block;
+        //left: 15px;
+        //top: 3px;
+        //left: 40px;
+        font-family: 'Gilroy', Serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        color:#495057;
+        line-height: 14px;
+    }
+
+    .policy {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+
+        #modal__question__checkbox+label {
+            display: inline-flex;
+            align-items: center;
+            user-select: none;
+
+            width:  100%;
+            height: 20px;
+        }
+        #modal__question__checkbox+label {
+            //font-family: 'Gilroy',Serif;
+            //font-style: normal;
+            //font-weight: 400;
+            //font-size: 14px;
+            //line-height: 16px;
+            //color: #495057;
+        }
+        #modal__question__checkbox+label::before {
+            content: '';
+            display: inline-flex;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            border: 1px solid #adb5bd;
+            border-radius: 5px;
+            margin-right: 0.1em;
+            background-color: #DFE7EB;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+        }
+        #modal__question__checkbox:checked+label::before {
+            //border-color: #0b76ef;
+            background:url('../images/checkbox_icon.png') ;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+            background-color: #DFE7EB;
+            color: #2C4D84;
+        }
+        #labelcheckbox {
+            width: 100%;
+            font-family: 'Gilroy', Serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: right;
+            color: #495057;
+            padding: 0;
+        }
+        #modal__question__checkbox {
+            display: none;
+        }
+    }
+    #modal__question__telprefix {
+        left:5px !important;
+        padding-left: 2px!important;
+    }
+}

@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap w/ Vite</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Forum">
+    <link rel="stylesheet" href="scss/styles.scss">
+    <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row header">
+        <div class="col-md-2">
+            <div class="logo"></div>
+        </div>
+        <div class="col-md-10">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Обо мне</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Статьи</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Вопросы юристу</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Выигранные дела</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 right-list">
+                            <li class="nav-item">
+                                <a class="nav-link tel" href="tel:79190088811">8(919) 008 88 11</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Контакты</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row article">
+        <div class="col-md-6">
+            <div class="speech1">Избавлю от долгов<br>и микрозаймов</div>
+            <div class="article__left__list">
+                <ul >
+                    <li>Работаю по всей России</li>
+                    <li>Даю гарантии в договоре</li>
+                    <li>Беру на себя общение с приставами</li>
+                    <li>Гибкие условия оплаты</li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class=" col-md-4 col-xs-4">
+                    <input type="button" class="btn button-consult" value="Бесплатная консультация">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="right">
+                <div class="article__right-image">
+                    <img class="article__right-image__woman" src="./images/woman.png" alt="">
+                    <img class="article__right-image__emblem" src="./images/emblem.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid article2">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4">
+                <img class="article2__left-image" src="images/woman2.png" alt="" >
+            </div>
+            <div class="col-md-7 right">
+                <h3>Обо мне</h3>
+                <h1>ДОРОГИЕ ДРУЗЬЯ,<br>ДАВАЙТЕ ЗНАКОМИТЬСЯ!</h1>
+                <P>Меня зовут Андрей Борисович. За 20 лет юридической практики наработан большой опыт в подготовке всех видов процессуальных документов, выработке правовой позиции, представительстве интересов в суде. Интересы клиентов представляются как в судах общей юрисдикции,
+                    так и в арбитражных. Работа ведется как с гражданами, так
+                    и с юридическими лицами. Имеется опыт ведения дел в контролирующих органах.
+                    <br>В 1999 г. закончил Тверской государственный университет по специальности юриспруденция.
+                </P>
+                <div class="article2__description">
+                    <div class="article2__left-description">20+
+                        <p>лет юридической<br>практики</p>
+                    </div>
+                    <div class="article2__right-description">50
+                        <p>выигранных<br>споров</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container article2__footer">
+        <div class="row">
+            <div class="col">
+                <h1>Плюсы и минусы банкротства</h1>
+                <button id="btn1" type="button" class="btn btn-primary " onclick="btn1onclick">Судебное банкротство</button>
+                <button id="btn2" type="button" class="btn btn-primary unchecked" onclick="btn2onclick()">Банкротство через МФЦ</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="article2__footer__plus-list">
+                    <li>Полное освобождение от долгов</li>
+                    <li>Снятие ареста с имущества (которое наложили
+                        до банкротства)</li>
+                    <li>Единственное жилье сохраняется (в реализации)</li>
+                    <li>Сохраняется все имущество (в реструктуризации)</li>
+                    <li>Снимается запрет на выезд за границу</li>
+                    <li>Кредиторы и коллекторы не имеют права беспокоить</li>
+                    <li>Долги по кредитам, ипотеке, налогам списываются</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul class="article2__footer__minus-list">
+                    <li>Стоит от 50 тысяч рублей и больше </li>
+                    <li>Может длиться до 3 лет (реструктуризация)</li>
+                    <li>Залоговое имущество реализуется, даже если<br></be> жилье единственное (реализация)</li>
+                    <li>Кредитная история испорчена (но из-за самих долгов)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid faq">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>
+                    Вопрос-ответ
+                </h3>
+                <h1>
+                    Часто задаваемые вопросы
+                </h1>
+                <div class="faq__names">
+                    <button type="button" class="btn btn-primary">Алименты</button>
+                    <button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
+                    <button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
+                    <button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
+                    <button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
+                    <button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
+                    <button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
+                    <button type="button" class="btn btn-primary readmore">Показать еще</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="faq__card">
+                    <div class="faq__card__name">
+                        Алименты
+                    </div>
+                    <div class="faq__card__description">
+                        Может ли суд назначить алименты в твердой сумме,
+                        если у плательщика изменилась жизненная ситуация
+                        в худшую сторону по состоянию здоровья?
+                        <div class="faq__card__readmore">
+                        </div>
+                    </div>
+                    <div class="faq__card__date">
+                        09.09.2022
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="faq__card">
+                    <div class="faq__card__name">
+                        Алименты
+                    </div>
+                    <div class="faq__card__description">
+                        Может ли суд назначить алименты в твердой сумме,
+                        если у плательщика изменилась жизненная ситуация
+                        в худшую сторону по состоянию здоровья?
+                        <div class="faq__card__readmore">
+                        </div>
+                    </div>
+                    <div class="faq__card__date">
+                        09.09.2022
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="faq__card">
+                    <div class="faq__card__name">
+                        Алименты
+                    </div>
+                    <div class="faq__card__description">
+                        Может ли суд назначить алименты в твердой сумме,
+                        если у плательщика изменилась жизненная ситуация
+                        в худшую сторону по состоянию здоровья?
+                        <div class="faq__card__readmore">
+                        </div>
+                    </div>
+                    <div class="faq__card__date">
+                        09.09.2022
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="faq__card">
+                    <div class="faq__card__name">
+                        Алименты
+                    </div>
+                    <div class="faq__card__description">
+                        Может ли суд назначить алименты в твердой сумме,
+                        если у плательщика изменилась жизненная ситуация
+                        в худшую сторону по состоянию здоровья?
+                        <div class="faq__card__readmore">
+                        </div>
+                    </div>
+                    <div class="faq__card__date">
+                        09.09.2022
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="faq__card">
+                    <div class="faq__card__name">
+                        Алименты
+                    </div>
+                    <div class="faq__card__description">
+                        Может ли суд назначить алименты в твердой сумме,
+                        если у плательщика изменилась жизненная ситуация
+                        в худшую сторону по состоянию здоровья?
+                        <div class="faq__card__readmore">
+                        </div>
+                    </div>
+                    <div class="faq__card__date">
+                        09.09.2022
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="faq__card">
+                    <div class="faq__card__name">
+                        Алименты
+                    </div>
+                    <div class="faq__card__description">
+                        Может ли суд назначить алименты в твердой сумме,
+                        если у плательщика изменилась жизненная ситуация
+                        в худшую сторону по состоянию здоровья?
+                        <div class="faq__card__readmore">
+                        </div>
+                    </div>
+                    <div class="faq__card__date">
+                        09.09.2022
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="faq__readall">
+                    <a href="#">Смотреть все вопросы<img src="./images/readall__arrow.png" alt="смотреть все" class="faq__readall__image"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row faq__question">
+            <div class="col-8">
+                <h1>Онлайн-консультация с юристом</h1>
+                <p>Получите ответ на интересующий Вас вопрос в течение 48 часов</p>
+                <form action="#">
+                    <div>
+                        <textarea class="faq__question__textarea" name="question"  placeholder="Задать вопрос"></textarea>
+                        <button type="submit" class="btn btn-primary faq__question__sendbutton">Отправить
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4 faq__question__image">
+                <img src="./images/woman_ellipse.png" alt="" class="faq__question__womanimg" >
+                <img src="./images/emblem.png" alt="" class="faq__image--emblema">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container results">
+        <div class="row">
+            <div class="col results__header">
+                <h1 class="results__h1">В результате вы получаете</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 results__item">
+                <img src="./images/check_icon.png" alt="">
+                <h2>Списание всех долгов</h2>
+                <p>Независимо от количества кредиторов и размера долгов все долги будут списаны.
+                    Исключение составляют долги по алиментам, нанесение физического вреда.</p>
+            </div>
+            <div class="col-4 results__item">
+                <img src="./images/check_icon.png" alt="">
+                <h2>Списание всех долгов</h2>
+                <p>Независимо от количества кредиторов и размера долгов все долги будут списаны.
+                    Исключение составляют долги по алиментам, нанесение физического вреда.</p>
+            </div>
+            <div class="col-4 results__item">
+                <img src="./images/check_icon.png" alt="">
+                <h2>Списание всех долгов</h2>
+                <p>Независимо от количества кредиторов и размера долгов все долги будут списаны.
+                    Исключение составляют долги по алиментам, нанесение физического вреда.</p>
+            </div>
+        </div>
+        <div class="row results__price">
+            <div class="col-6">
+                <h1>
+                    от чего зависит<br>стоимость услуги
+                </h1>
+                <h4>
+                    Стоимость услуги<br> начинается от 10 000 руб.
+                </h4>
+            </div>
+            <div class="col-6">
+                <ul>
+                    <li>
+                        <b>Количество кредиторов:</b> чем больше участников, тем больше уведомлений, заседаний, споров и работы юриста.
+                    </li>
+                    <li>
+                        <b>Состав имущества:</b> каждый объект собственности, который нужно продать, требует затрат на публикации
+                        и госпошлину, торговую площадку и оценщика. Больше лотов — больше затрат.
+                    </li>
+                    <li>
+                        Имеет значение <b>долевая или совместная собственность</b>
+                        на объекты, <b>статус ИП.</b> Стоимость рассчитывается, исходя из конкретной ситуации клиента.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container wait-call">
+        <div class="row">
+            <div class="col">
+                <h3>
+                    не нашли нужного ответа?
+                </h3>
+                <p>Оставьте свой вопрос юристу и получите бесплатный ответ в течение 48 часов</p>
+                <form action="#">
+                    <input type="text" placeholder="Ваш вопрос">
+                    <input type="text" placeholder="Ваше имя">
+                    <input type="text" placeholder="Контактный телефон">
+                    <input type="submit" value="Жду звонка">
+                </form>
+                <p>Заполняя форму, Вы соглашатесь на обработку персональных данных</p>
+            </div>
+        </div>
+    </div>
+    <div class="container readyworks">
+        <div class="row">
+            <div class="col-4">
+                <div class="readyworks__header">
+                    <div class="readyworks__header__left">
+                        <h3>
+                            Завершенные дела
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="readyworks__header__right">
+                    <a href="#"><img src="./images/arrowleft_icon.png" alt=""></a>
+                    <a href="#"><img src="./images/arrowright_icon.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="row rw">
+            <div class="col-4 readyworks__block">
+                <h4>Дело А76-5893/2021</h4>
+                <div class="readyworks__block__summa">
+                    <img src="./images/wallet_icon.png" alt="">
+                    <span>Списанная сумма</span>
+                    <p>580 000 руб</p>
+                </div>
+                <div class="readyworks__block__duration">
+                    <img src="./images/clock_icon.png" alt="">
+                    <span style="">Длительность</span>
+                    <p>10 мес. 22 дн.</p>
+                </div>
+                <a href="#">Смотреть дело ></a>
+            </div>
+            <div class="col-4 readyworks__block">
+                <h4>Дело А76-5893/2021</h4>
+                <div class="readyworks__block__summa">
+                    <img src="./images/wallet_icon.png" alt="">
+                    <span>Списанная сумма</span>
+                    <p>580 000 руб</p>
+                </div>
+                <div class="readyworks__block__duration">
+                    <img src="./images/clock_icon.png" alt="">
+                    <span style="">Длительность</span>
+                    <p>10 мес. 22 дн.</p>
+                </div>
+                <a href="#">Смотреть дело ></a>
+            </div>
+            <div class="col-4 readyworks__block">
+                <h4>Дело А76-5893/2021</h4>
+                <div class="readyworks__block__summa">
+                    <img src="./images/wallet_icon.png" alt="">
+                    <span>Списанная сумма</span>
+                    <p>580 000 руб</p>
+                </div>
+                <div class="readyworks__block__duration">
+                    <img src="./images/clock_icon.png" alt="">
+                    <span style="">Длительность</span>
+                    <p>10 мес. 22 дн.</p>
+                </div>
+                <a href="#">Смотреть дело ></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid video">
+    <div class="container ">
+        <div class="row">
+            <div class="col">
+                <h1>ВИДЕО</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="video__item">
+                </div>
+                <h6>Заголовок видео</h6>
+            </div>
+            <div class="col-4">
+                <div class="video__item">
+                </div>
+                <h6>Заголовок видео</h6>
+            </div>
+            <div class="col-4">
+                <div class="video__item">
+                </div>
+                <h6>Заголовок видео</h6>
+            </div>
+        </div>
+    </div>
+    <div class="container video__endarticle">
+        <div class="row">
+            <div class="col-4">
+                <img src="./images/woman_endarticle.png" alt="">
+                <input type="button" class="btn btn-primary" value="Бесплатная консультация">
+            </div>
+            <div class="col-8 video__endarticle__rightcolumn">
+                <h6>Полезно знать</h6>
+                <h1>Законный способ<br>избавиться от долгов</h1>
+                <p>По закону о банкротстве физических лиц человек, который не может платить кредиты и займы, вправе объявить банкротство и освободиться от долгов.<br><br>
+                    В 2022 году банкротство можно признать через арбитражный суд или через МФЦ. Банкротство в суде доступно физлицам независимо от наличия имущества, уровня доходов и исполнительных производств. Суд официально списывает задолженности без ограничения по сумме долга.<br><br>
+                    Внесудебное банкротство через МФЦ позволяет бесплатно списать долги,
+                    но сумма ограничена — 500 тысяч рублей. Также обязательно, чтобы приставы провели исполнительное производство и закрыли дело.<br><br>
+                    На сайте мы рассказываем, что такое банкротство гражданина, каковы требования и последствия, что делать с приставами, коллекторами, банками
+                    и МФО. Вы можете получить бесплатную консультацию по своему вопросу
+                    либо заказать план банкротства.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid footer">
+    <div class="container ">
+        <div class="row">
+            <div class="col-8">
+                <img src="./images/logo_footer.png" alt="" class="footer__logo">
+                <ul class="footer__menu">
+                    <li>Обо мне</li>
+                    <li>Вопросы юристу</li>
+                    <li>Выигранные дела</li>
+                    <li>Статьи</li>
+                </ul>
+                <hr>
+                <p>Юридическая помощь гражданам России по освобождению от кредитов и долгов,
+                    вызванных недостаточностью денежных средств в соответствии с законом от 26.10.2002 №127-ФЗ «О несостоятельности (банкротстве)». После завершения процедуры банкротства присутствуют временные неблагоприятные ограничения. Перед началом процедуры изучите закон, ознакомьтесь со всеми особенностями и обязательно проконсультируйтесь со специалистом. Первичная консультация специалиста компании БФЛ - бесплатна.</p>
+                <p>Использование сайта означает согласие с
+                    условиями политики конфиденциальности</p>
+            </div>
+            <div class="col-4 footer__contacts">
+                <h6>8 800 000 00 00</h6>
+                <p>
+                    бесплатно на территории РФ
+                </p>
+                <p>Москва, Холодильный пер, д. 3, к. 1<br>
+                    ООО «БФЛ» © 2022</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function btn1onclick() {
+        document.getElementById('btn2').classList.add('unchecked');
+        document.getElementById('btn1').classList.remove('unchecked');
+    }
+    function btn2onclick() {
+        document.getElementById('btn1').classList.add('unchecked');
+        document.getElementById('btn2').classList.remove('unchecked');
+    }
+</script>
+</html>

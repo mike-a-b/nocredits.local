@@ -1,0 +1,14 @@
+@media (max-width: 768px) {
+    .container {
+        max-width: 700px;
+        padding: 0;
+        .navbar{
+        }
+    }
+}
+@media (max-width: 375px) {
+    .container {
+        max-width: 345px;
+        padding: 0;
+    }
+}

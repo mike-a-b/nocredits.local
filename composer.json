@@ -1,0 +1,23 @@
+{
+    "name": "m/wordpress",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "M\\Wordpress\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mike B.",
+            "email": "mikebocharov89@gmail.com"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress": "^6.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true
+        }
+    }
+}
