@@ -1,7 +1,6 @@
-/* Template Name: style.css
-Template: Twenty Twenty-One
-author: mike.a.b@yandex.ru
-version: 1.0
- */
+/*
+Template Name: style.css
+Theme name: nocredits
+*/
 
-@import "../twentytwentyone/style.css";
+@import "./assets/src/scss/styles.css";
