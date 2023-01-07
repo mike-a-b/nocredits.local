@@ -47,10 +47,15 @@
 						</ul>
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0 right-list">
 							<li class="nav-item">
+                                <?php
+                                    if(is_active_sidebar('nocredits_header')) {
+                                        dynamic_sidebar('nocredits_header');
+                                    }
+                                ?>
 								<a class="nav-link tel" href="tel:79190088811">8(919) 008 88 11</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Контакты</a>
+								<a class="nav-link" href="/contacts/">Контакты</a>
 							</li>
 						</ul>
 					</div>

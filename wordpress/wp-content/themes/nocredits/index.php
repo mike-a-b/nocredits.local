@@ -4,99 +4,99 @@ Template Name: шаблон для главной страницы nocredits
 */
 get_header();
 ?>
-<!--<div class="container article">-->
-<!--	<div class="row ">-->
-<!--		<div class="col-7">-->
-<!--			<div class="speech1">Избавлю от долгов<br>и микрозаймов</div>-->
-<!--			<div class="article__left__list">-->
-<!--				<ul >-->
-<!--					<li>Работаю по всей России</li>-->
-<!--					<li>Даю гарантии в договоре</li>-->
-<!--					<li>Беру на себя общение с приставами</li>-->
-<!--					<li>Гибкие условия оплаты</li>-->
-<!--				</ul>-->
-<!--			</div>-->
-<!--            <div id="article__left-image__woman">-->
-<!--                <img style="position: relative;top: 0%;left: 0%;z-index: 5;" src="--><?php //echo get_template_directory_uri()?><!--/assets/src/images/left__woman.png" alt="">-->
-<!--                <img style="position: absolute;top: 47%;left: 50%;z-index: 1;" src="--><?php //echo get_template_directory_uri()?><!--/assets/src/images/emblem.png" alt="">-->
-<!--            </div>-->
-<!--            <input type="button" data-bs-toggle="modal" data-bs-target="#modal__question" class="btn button-consult" value="Бесплатная консультация">-->
-<!--		</div>-->
-<!--		<div class="col-5">-->
-<!--			<div class="right">-->
-<!--				<div class="article__right-image">-->
-<!--					<img class="article__right-image__woman" src="--><?php //echo get_template_directory_uri(). '/assets/src/images/woman.png'?><!--" alt="Избавлю от долгов<br>и микрозаймов">-->
-<!--					<img class="article__right-image__emblem" src="--><?php //echo get_template_directory_uri(). '/assets/src/images/emblem.png' ?><!--" alt="Избавлю от долгов<br>и микрозаймов">-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--</div>-->
-<!--<div class="container-fluid article2">-->
-<!--	<div class="container">-->
-<!--		<div class="row ">-->
-<!--			<div class="col-4 left">-->
-<!--				<img class="article2__left-image" src="--><?php //echo get_template_directory_uri(). '/assets/src/images/woman2.png'?><!--" alt="Обо мне" >-->
-<!--			</div>-->
-<!--			<div class="col-7 right">-->
-<!--				<h3>Обо мне</h3>-->
-<!--				<h1>ДОРОГИЕ ДРУЗЬЯ,<br>ДАВАЙТЕ ЗНАКОМИТЬСЯ!</h1>-->
-<!--				<p>Меня зовут Андрей Борисович. За 20 лет юридической практики наработан большой опыт в подготовке всех видов процессуальных документов, выработке правовой позиции, представительстве интересов в суде. Интересы клиентов представляются как в судах общей юрисдикции,-->
-<!--					так и в арбитражных. Работа ведется как с гражданами, так-->
-<!--					и с юридическими лицами. Имеется опыт ведения дел в контролирующих органах.-->
-<!--					<br>В 1999 г. закончил Тверской государственный университет по специальности юриспруденция.-->
-<!--				</p>-->
-<!--                <div class="article2__d">-->
-<!--                    <div id="article2__description__imagelaptop">-->
-<!--                        <img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/src/images/woman2_laptop.png" alt="Обо мне">-->
-<!--                    </div>-->
-<!--                    <div id="article2__description__imagemobile">-->
-<!--                        <img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/src/images/woman2_mobile.png" alt="Обо мне">-->
-<!--                    </div>-->
-<!--                    <div class="article2__description">-->
-<!--                        <div class="article2__left-description">20+-->
-<!--                            <p>лет юридической<br>практики</p>-->
-<!--                        </div>-->
-<!--                        <div class="article2__right-description">50-->
-<!--                            <p>выигранных<br>споров</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--	<div class="container article2__footer">-->
-<!--		<div class="row">-->
-<!--			<div class="col">-->
-<!--				<h1>Плюсы и минусы банкротства</h1>-->
-<!--				<button id="btn1" type="button" class="btn btn-primary " onclick="btn1onclick">Судебное банкротство</button>-->
-<!--				<button id="btn2" type="button" class="btn btn-primary unchecked" onclick="btn2onclick()">Банкротство через МФЦ</button>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--		<div class="row">-->
-<!--			<div class="col col-sm-12 col-xs-12">-->
-<!--				<ul class="article2__footer__plus-list">-->
-<!--					<li>Полное освобождение от долгов</li>-->
-<!--					<li>Снятие ареста с имущества (которое наложили-->
-<!--						до банкротства)</li>-->
-<!--					<li>Единственное жилье сохраняется (в реализации)</li>-->
-<!--					<li>Сохраняется все имущество (в реструктуризации)</li>-->
-<!--					<li>Снимается запрет на выезд за границу</li>-->
-<!--					<li>Кредиторы и коллекторы не имеют права беспокоить</li>-->
-<!--					<li>Долги по кредитам, ипотеке, налогам списываются</li>-->
-<!--				</ul>-->
-<!--			</div>-->
-<!--			<div class="col col-sm-12 col-xs-12">-->
-<!--				<ul class="article2__footer__minus-list">-->
-<!--					<li>Стоит от 50 тысяч рублей и больше </li>-->
-<!--					<li>Может длиться до 3 лет (реструктуризация)</li>-->
-<!--					<li>Залоговое имущество реализуется, даже если<br></be> жилье единственное (реализация)</li>-->
-<!--					<li>Кредитная история испорчена (но из-за самих долгов)</li>-->
-<!--				</ul>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--</div>-->
+<div class="container article">
+	<div class="row ">
+		<div class="col-7">
+			<div class="speech1">Избавлю от долгов<br>и микрозаймов</div>
+			<div class="article__left__list">
+				<ul >
+					<li>Работаю по всей России</li>
+					<li>Даю гарантии в договоре</li>
+					<li>Беру на себя общение с приставами</li>
+					<li>Гибкие условия оплаты</li>
+				</ul>
+			</div>
+            <div id="article__left-image__woman">
+                <img style="position: relative;top: 0%;left: 0%;z-index: 5;" src="<?php echo get_template_directory_uri()?>/assets/src/images/left__woman.png" alt="">
+                <img style="position: absolute;top: 47%;left: 50%;z-index: 1;" src="<?php echo get_template_directory_uri()?>/assets/src/images/emblem.png" alt="">
+            </div>
+            <input type="button" data-bs-toggle="modal" data-bs-target="#modal__question" class="btn button-consult" value="Бесплатная консультация">
+		</div>
+		<div class="col-5">
+			<div class="right">
+				<div class="article__right-image">
+					<img class="article__right-image__woman" src="<?php echo get_template_directory_uri(). '/assets/src/images/woman.png'?>" alt="Избавлю от долгов<br>и микрозаймов">
+					<img class="article__right-image__emblem" src="<?php echo get_template_directory_uri(). '/assets/src/images/emblem.png' ?>" alt="Избавлю от долгов<br>и микрозаймов">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid article2">
+	<div class="container">
+		<div class="row ">
+			<div class="col-4 left">
+				<img class="article2__left-image" src="<?php echo get_template_directory_uri(). '/assets/src/images/woman2.png'?>" alt="Обо мне" >
+			</div>
+			<div class="col-7 right">
+				<h3>Обо мне</h3>
+				<h1>ДОРОГИЕ ДРУЗЬЯ,<br>ДАВАЙТЕ ЗНАКОМИТЬСЯ!</h1>
+				<p>Меня зовут Андрей Борисович. За 20 лет юридической практики наработан большой опыт в подготовке всех видов процессуальных документов, выработке правовой позиции, представительстве интересов в суде. Интересы клиентов представляются как в судах общей юрисдикции,
+					так и в арбитражных. Работа ведется как с гражданами, так
+					и с юридическими лицами. Имеется опыт ведения дел в контролирующих органах.
+					<br>В 1999 г. закончил Тверской государственный университет по специальности юриспруденция.
+				</p>
+                <div class="article2__d">
+                    <div id="article2__description__imagelaptop">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/src/images/woman2_laptop.png" alt="Обо мне">
+                    </div>
+                    <div id="article2__description__imagemobile">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/src/images/woman2_mobile.png" alt="Обо мне">
+                    </div>
+                    <div class="article2__description">
+                        <div class="article2__left-description">20+
+                            <p>лет юридической<br>практики</p>
+                        </div>
+                        <div class="article2__right-description">50
+                            <p>выигранных<br>споров</p>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+	<div class="container article2__footer">
+		<div class="row">
+			<div class="col">
+				<h1>Плюсы и минусы банкротства</h1>
+				<button id="btn1" type="button" class="btn btn-primary " onclick="btn1onclick">Судебное банкротство</button>
+				<button id="btn2" type="button" class="btn btn-primary unchecked" onclick="btn2onclick()">Банкротство через МФЦ</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-sm-12 col-xs-12">
+				<ul class="article2__footer__plus-list">
+					<li>Полное освобождение от долгов</li>
+					<li>Снятие ареста с имущества (которое наложили
+						до банкротства)</li>
+					<li>Единственное жилье сохраняется (в реализации)</li>
+					<li>Сохраняется все имущество (в реструктуризации)</li>
+					<li>Снимается запрет на выезд за границу</li>
+					<li>Кредиторы и коллекторы не имеют права беспокоить</li>
+					<li>Долги по кредитам, ипотеке, налогам списываются</li>
+				</ul>
+			</div>
+			<div class="col col-sm-12 col-xs-12">
+				<ul class="article2__footer__minus-list">
+					<li>Стоит от 50 тысяч рублей и больше </li>
+					<li>Может длиться до 3 лет (реструктуризация)</li>
+					<li>Залоговое имущество реализуется, даже если<br></be> жилье единственное (реализация)</li>
+					<li>Кредитная история испорчена (но из-за самих долгов)</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="container-fluid faq">
 	<div class="container">
 		<div class="row">
@@ -356,44 +356,51 @@ get_header();
 		<div class="row rw">
 			<div class="col-4 readyworks__block">
 				<h4>Дело А76-5893/2021</h4>
-				<div class="readyworks__block__summa">
-					<img src="<?php echo get_template_directory_uri(). '/assets/src/images/wallet_icon.png'?>" alt="Завершенные дела">
-					<span>Списанная сумма</span>
-					<p>580 000 руб</p>
-				</div>
-				<div class="readyworks__block__duration">
-					<img src="<?php echo get_template_directory_uri(). '/assets/src/images/clock_icon.png'?>" alt="Завершенные дела">
-					<span style="">Длительность</span>
-					<p>10 мес. 22 дн.</p>
-				</div>
+                <div class="readyworks__block__line">
+                    <div class="readyworks__block__summa">
+                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/wallet_icon.png'?>" alt="Завершенные дела">
+                        <span>Списанная сумма</span>
+                        <p>580 000 руб</p>
+                    </div>
+                    <div class="readyworks__block__duration">
+                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/clock_icon.png'?>" alt="Завершенные дела">
+                        <span style="">Длительность</span>
+                        <p>10 мес. 22 дн.</p>
+                    </div>
+                </div>
 				<a href="#">Смотреть дело ></a>
 			</div>
 			<div class="col-4 readyworks__block">
 				<h4>Дело А76-5893/2021</h4>
-				<div class="readyworks__block__summa">
-					<img src="<?php echo get_template_directory_uri(). '/assets/src/images/wallet_icon.png'?>" alt="Завершенные дела">
-					<span>Списанная сумма</span>
-					<p>580 000 руб</p>
-				</div>
-				<div class="readyworks__block__duration">
-					<img src="<?php echo get_template_directory_uri(). '/assets/srcimages/clock_icon.png'?>" alt="Завершенные дела">
-					<span style="">Длительность</span>
-					<p>10 мес. 22 дн.</p>
-				</div>
+                <div class="readyworks__block__line">
+                    <div class="readyworks__block__summa">
+                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/wallet_icon.png'?>" alt="Завершенные дела">
+                        <span>Списанная сумма</span>
+                        <p>580 000 руб</p>
+                    </div>
+                    <div class="readyworks__block__duration">
+                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/clock_icon.png'?>" alt="Завершенные дела">
+
+                        <span style="">Длительность</span>
+                        <p>10 мес. 22 дн.</p>
+                    </div>
+                </div>
 				<a href="#">Смотреть дело ></a>
 			</div>
 			<div class="col-4 readyworks__block">
 				<h4>Дело А76-5893/2021</h4>
-				<div class="readyworks__block__summa">
-					<img src="<?php echo get_template_directory_uri(). '/assets/src/images/wallet_icon.png'?>" alt="Завершенные дела">
-					<span>Списанная сумма</span>
-					<p>580 000 руб</p>
-				</div>
-				<div class="readyworks__block__duration">
-					<img src="<?php echo get_template_directory_uri(). '/assets/src/images/clock_icon.png'?>" alt="Завершенные дела">
-					<span style="">Длительность</span>
-					<p>10 мес. 22 дн.</p>
-				</div>
+                <div class="readyworks__block__line">
+                    <div class="readyworks__block__summa">
+                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/wallet_icon.png'?>" alt="Завершенные дела">
+                        <span>Списанная сумма</span>
+                        <p>580 000 руб</p>
+                    </div>
+                    <div class="readyworks__block__duration">
+                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/clock_icon.png'?>" alt="Завершенные дела">
+                        <span style="">Длительность</span>
+                        <p>10 мес. 22 дн.</p>
+                    </div>
+                </div>
 				<a href="#">Смотреть дело ></a>
 			</div>
 		</div>
@@ -402,11 +409,17 @@ get_header();
 <div class="container-fluid video">
 	<div class="container ">
 		<div class="row">
-			<div class="col">
+			<div class="col-4 col-sm-4 col-xs-4">
 				<h1>ВИДЕО</h1>
 			</div>
+            <div class="col-8 col-sm-8 col-xs-8">
+                <div class="video__header__right">
+                    <a href="#"><img src="<?php echo get_template_directory_uri(). '/assets/src/images/arrowleft_icon.png'?>" alt="Завершенные дела"></a>
+                    <a href="#"><img src="<?php echo get_template_directory_uri(). '/assets/src/images/arrowright_icon.png'?>" alt="Завершенные дела"></a>
+                </div>
+            </div>
 		</div>
-		<div class="row">
+		<div class="row video__items">
 			<div class="col-4">
 				<div class="video__item">
 				</div>
@@ -441,6 +454,14 @@ get_header();
 					и МФО. Вы можете получить бесплатную консультацию по своему вопросу
 					либо заказать план банкротства.</p>
 			</div>
+            <div class="video__endarticle__laptop">
+                <img src="<?php echo get_template_directory_uri(). '/assets/src/images/woman_endarticle_laptop.png'?>" alt="Бесплатная консультация">
+                <input type="button" class="btn btn-primary" value="Бесплатная консультация">
+            </div>
+            <div class="video__endarticle__mobile">
+                <img src="<?php echo get_template_directory_uri(). '/assets/src/images/woman_endarticle_mobile.png'?>" alt="Бесплатная консультация">
+                <input type="button" class="btn btn-primary" value="Бесплатная консультация">
+            </div>
 		</div>
 	</div>
 </div>
