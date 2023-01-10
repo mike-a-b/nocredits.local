@@ -7,13 +7,13 @@
 			<div class="col">
 				<h1>404 ошибка</h1>
 				<p>Кажется, что-то пошло не так. Давайте начнем сначала.</p>
-				<input type="button" class="btn btn-primary" value="Перейти на главную">
+				<input id="" onclick="gohome();" type="button" class="btn btn-primary" value="Перейти на главную">
 			</div>
 		</div>
 	</div>
 </div>
 <div class="background_emblema404">
-	<img src="./assets/src/images/emblem.png" alt="">
+<!--	<img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/src/images/emblem404.png" alt="">-->
 </div>
 <?php
     get_footer();

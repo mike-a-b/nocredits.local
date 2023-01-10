@@ -11,10 +11,14 @@ get_header();
 	<div class="container">
 		<div class="row ">
 			<div class="col">
+                <div class="contacts__backemblem">
+                    <img class="contacts__backemblem_img" src="<?php echo get_template_directory_uri(); ?>/assets/src/images/emblem.png" alt="Контакты">
+                    <img class="contacts__backemblem_imglaptop" src="<?php echo get_template_directory_uri(); ?>/assets/src/images/emblem.png" alt="Контакты">
+                    <img class="contacts__backemblem_imgmobile" src="<?php echo get_template_directory_uri(); ?>/assets/src/images/emblem_mobile.png" alt="Контакты">
+                </div>
 				<h1>Контакты</h1>
 				<div class="contacts__address">
 					<div class="contacts__address__left">
-
 						<h3>
 							Юридический адрес:
 						</h3>

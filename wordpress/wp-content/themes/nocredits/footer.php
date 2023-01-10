@@ -87,11 +87,7 @@
     });
 
     function changeInnerHtml() {
-        if(window.innerWidth <= 1024) {
-            article2left_img[0].style.display = 'none';
-        } else {
-            article2left_img[0].style.display = 'flex';
-        }
+
         //main
         if(window.innerWidth <= 768) {
             footerleftContacts.innerHTML = footerContacts.innerHTML;
@@ -107,6 +103,11 @@
             womanImg.style.display = 'none';
             rightwomanImg[0].style.display = 'block';
         }
+        if(window.innerWidth <= 1024) {
+            article2left_img[0].style.display = 'none';
+        } else {
+            article2left_img[0].style.display = 'flex';
+        }
     }
 
 
@@ -118,6 +119,9 @@
     function btn2onclick() {
         document.getElementById('btn1').classList.add('unchecked');
         document.getElementById('btn2').classList.remove('unchecked');
+    }
+    function gohome() {
+     window.location.href = '/';
     }
 </script>
 </html>

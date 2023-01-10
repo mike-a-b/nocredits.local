@@ -27,7 +27,7 @@
 		<div class="col-10">
 			<nav class="navbar navbar-expand-lg">
 				<div class="container-fluid">
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Main navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -52,7 +52,13 @@
                                         dynamic_sidebar('nocredits_header');
                                     }
                                 ?>
-								<a class="nav-link tel" href="tel:79190088811">8(919) 008 88 11</a>
+								<a class="nav-link tel" href="tel:79190088811">
+                                    <?php
+                                        if ( is_active_sidebar( 'nocredits_menu_phone' ) ) {
+                                            dynamic_sidebar( 'nocredits_menu_phone' );
+                                        }
+                                    ?>
+                                </a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="/contacts/">Контакты</a>
