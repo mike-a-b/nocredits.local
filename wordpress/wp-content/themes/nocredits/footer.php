@@ -7,13 +7,26 @@
                     <img id="footer__logo"  itemprop="logo" src="<?php echo get_template_directory_uri(); ?>/assets/src/images/logo_footer.png" alt="" class="footer__logo">
                 </div>
                 <div id="footer__contacts__mobile" class="footer__contacts__mobile">
+                    <h6>8 800 000 00 00</h6>
+                    <p>
+                        бесплатно на территории РФ
+                    </p>
+                    <p>Москва, Холодильный пер, д. 3, к. 1<br>
+                        ООО «БФЛ» © 2022</p>
                 </div>
-				<ul class="footer__menu">
-					<li><a href="#">Обо мне</a></li>
-					<li><a href="#">Вопросы юристу</a></li>
-					<li><a href="#">Выигранные дела</a></li>
-					<li><a href="#">Статьи</a></li>
-				</ul>
+<!--				<ul class="footer__menu">-->
+<!--					<li><a href="#">Обо мне</a></li>-->
+<!--					<li><a href="#">Вопросы юристу</a></li>-->
+<!--					<li><a href="#">Выигранные дела</a></li>-->
+<!--					<li><a href="#">Статьи</a></li>-->
+<!--				</ul>-->
+				<?php
+				wp_nav_menu([
+					'theme_location' => 'menu_footer',
+					'menu_class' => 'footer__menu',
+					'container' => false
+				]);
+				?>
 				<hr>
 				<p>Юридическая помощь гражданам России по освобождению от кредитов и долгов,
 					вызванных недостаточностью денежных средств в соответствии с законом от 26.10.2002 №127-ФЗ «О несостоятельности (банкротстве)». После завершения процедуры банкротства присутствуют временные неблагоприятные ограничения. Перед началом процедуры изучите закон, ознакомьтесь со всеми особенностями и обязательно проконсультируйтесь со специалистом. Первичная консультация специалиста компании БФЛ - бесплатна.</p>
@@ -35,36 +48,38 @@
 <!-- Modal window form -->
 <div class="modal fade" id="modal__question" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" class="modal-content">
             <h5 class="modal-title" id="exampleModalLabel">Задать вопрос</h5>
+
             <div class="form-control">
                 <label for="#modal__question__yourname">Имя</label>
-                <input id="#modal__question__yourname" type="text" placeholder="Ваше имя">
+                <input id="#modal__question__yourname" type="text"  name="username" placeholder="Ваше имя">
             </div>
             <div class="form-control">
                 <label for="#modal__question__youremail">Email</label>
-                <input id="#modal__question__youremail" type="text" placeholder="Ваш email">
+                <input id="#modal__question__youremail" type="text" name="usermail" placeholder="Ваш email">
             </div>
             <div class="form-control tel2">
                 <div>
                     <label class="modal__question__label" for="modal__question__telprefix"></label>
-                    <input id="modal__question__telprefix" type="text" placeholder="+7">
+                    <input id="modal__question__telprefix" type="text" placeholder="+7" name="user_countrycode">
                 </div>
                 <label for="#modal__question__yourphone">Телефон</label>
-                <input id="#modal__question__yourphone" type="text" placeholder="Ваш телефон">
+                <input id="#modal__question__yourphone" type="text" placeholder="Ваш телефон" name="user_telephone">
             </div>
             <div class="form-control">
                 <label for="#yourquestion">Ваш вопрос</label>
-                <input id="#yourquestion" type="text" placeholder="Опишите ситуацию">
+                <input id="#yourquestion" type="text" placeholder="Опишите ситуацию" name="user_question">
             </div>
             <div class=" policy">
-                <input id="modal__question__checkbox" type="checkbox">
+                <input id="modal__question__checkbox" type="checkbox" name="user_policy_agree">
                 <label id="labelcheckbox" for="modal__question__checkbox">
                     Я принимаю условия Политики конфиденциальности
                 </label>
             </div>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Отправить</button>
-        </div>
+            <input type="hidden" name="action" value="nocredits_modalform">
+            <button type="submit" class="btn btn-primary" name="submit" data-bs-dismiss="modal">Отправить</button>
+        </form>>
     </div>
 </div>
 
@@ -90,18 +105,18 @@
 
         //main
         if(window.innerWidth <= 768) {
-            footerleftContacts.innerHTML = footerContacts.innerHTML;
-            footerContacts.innerHTML ='';
+            // footerleftContacts.innerHTML = footerContacts.innerHTML;
+            // footerContacts.innerHTML ='';
 
-            womanImg.style.display = 'block';
-            rightwomanImg[0].style.display = 'none';
+            // womanImg.style.display = 'block';
+            // rightwomanImg[0].style.display = 'none';
 
         } else {
-            footerContacts.innerHTML = footerleftContacts.innerHTML;
-            footerleftContacts.innerHTML = '';
+            // footerContacts.innerHTML = footerleftContacts.innerHTML;
+            // footerleftContacts.innerHTML = '';
 
-            womanImg.style.display = 'none';
-            rightwomanImg[0].style.display = 'block';
+            // womanImg.style.display = 'none';
+            // rightwomanImg[0].style.display = 'block';
         }
         if(window.innerWidth <= 1024) {
             article2left_img[0].style.display = 'none';

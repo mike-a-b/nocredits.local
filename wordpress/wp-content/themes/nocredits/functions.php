@@ -5,6 +5,8 @@ add_action('after_setup_theme', 'nocredits_setup');
 add_action('wp_enqueue_scripts', 'nocredits_scripts');
 add_action('widgets_init', 'nocredits_widgets');
 add_action( 'init', 'nocredits_register_types' );
+add_action('amin_post_nopriv_nocredits_modalform', 'nocredits_modalform');
+add_action('amin_post_nocredits_modalform', 'nocredits_modalform');
 
 //
 function nocredits_register_types() {
@@ -80,12 +82,15 @@ function nocredits_register_types() {
 function nocredits_setup() {
 	add_theme_support('title_tag');
 	add_theme_support('post-thumbnails');
+	register_nav_menu('menu_header', 'Меню в шапке');
+	register_nav_menu('menu_footer', 'Меню в подвале');
 }
 
 function nocredits_scripts() {
 	wp_enqueue_style( 'nocredits-style',
 		(get_template_directory_uri() . '/assets/src/scss/styles.css'),
 		[], '1.0.0', 'all' );
+
 }
 
 function nocredits_widgets() {
@@ -126,4 +131,8 @@ function nocredits_widgets() {
 		'after_widget' => null
 	]);
 	register_widget('Nocredits_Widget_Text');
+}
+
+function nocredits_modalform() {
+	var_dump($_POST);
 }

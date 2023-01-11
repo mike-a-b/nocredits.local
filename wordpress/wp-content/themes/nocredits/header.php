@@ -18,40 +18,33 @@
 <body>
 <div class="container">
 	<div class="row header">
-		<div class="col-2">
+		<div class="col-1">
             <div itemscope itemtype="http://schema.org/Organization">
                 <a itemprop="url" href="<?php echo get_home_url(); ?>"></a>
                 <img  class="logo" itemprop="logo" src="<?php echo get_template_directory_uri(). '/assets/src/images/logo.png'; ?>" />
             </div>
 		</div>
-		<div class="col-10">
+		<div class="col-11">
 			<nav class="navbar navbar-expand-lg">
 				<div class="container-fluid">
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Main navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <?php
+                            wp_nav_menu([
+                                'theme_location' => 'menu_header',
+                                'menu_class' => 'navbar-nav me-auto mb-2 mb-lg-0',
+                                'container' => false
+                            ]);
+                        ?>
+						<ul class="navbar-nav right-list">
 							<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="#">Обо мне</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Статьи</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Вопросы юристу</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Выигранные дела</a>
-							</li>
-						</ul>
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0 right-list">
-							<li class="nav-item">
-                                <?php
-                                    if(is_active_sidebar('nocredits_header')) {
-                                        dynamic_sidebar('nocredits_header');
-                                    }
-                                ?>
+<!--                                --><?php
+//                                    if(is_active_sidebar('nocredits_header')) {
+//                                        dynamic_sidebar('nocredits_header');
+//                                    }
+//                                ?>
 								<a class="nav-link tel" href="tel:79190088811">
                                     <?php
                                         if ( is_active_sidebar( 'nocredits_menu_phone' ) ) {
