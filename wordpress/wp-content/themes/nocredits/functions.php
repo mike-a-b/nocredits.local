@@ -5,9 +5,12 @@ add_action('after_setup_theme', 'nocredits_setup');
 add_action('wp_enqueue_scripts', 'nocredits_scripts');
 add_action('widgets_init', 'nocredits_widgets');
 add_action( 'init', 'nocredits_register_types' );
-add_action('amin_post_nopriv_nocredits_modalform', 'nocredits_modalform');
-add_action('amin_post_nocredits_modalform', 'nocredits_modalform');
-
+add_action('admin_post_nopriv_nocredits_form_handle', 'nocredits_modalform');
+add_action('admin_post_nocredits_form_handle', 'nocredits_modalform');
+add_action('wp_ajax_nopriv_sendModalForm', 'nocredits_modalform_handler');
+add_action('wp_ajax_sendModalForm', 'nocredits_modalform_handler');
+add_action('manage_posts_custom_column', 'nocredits_viewscount_column', 5, 2);
+add_filter('manage_posts_columns', 'nocredits_add_viewscolumn');
 //
 function nocredits_register_types() {
 	register_post_type( 'cases', [
@@ -26,7 +29,7 @@ function nocredits_register_types() {
 			'menu_name'          => 'Выигранные дела', // название меню
 		],
 		'public'              => true,
-		'menu_position'       => 20,
+		'menu_position'       => 10,
 		'menu_icon'           => 'dashicons-welcome-learn-more',
 		'hierarchical'        => false,
 		'supports'            => ['title', 'editor', 'thumbnail'],
@@ -71,11 +74,35 @@ function nocredits_register_types() {
 			'menu_name'          => 'Вопросы юристу', // название меню
 		],
 		'public'              => true,
-		'menu_position'       => 20,
+		'menu_position'       => 30,
 		'menu_icon'           => 'dashicons-megaphone',
 		'hierarchical'        => false,
 		'supports'            => ['title', 'editor', 'thumbnail'],
 		'has_archive' => true
+	]);
+	register_post_type( 'orders', [
+		'labels' => [
+			'name'               => 'Заявки на консультацию юристу', // основное название для типа записи
+			'singular_name'      => 'Заявки на консультацию юристу', // название для одной записи этого типа
+			'add_new'            => 'Добавить заявку на консультацию', // для добавления новой записи
+			'add_new_item'       => 'Добавить заявку на консультацию', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактировать заявку на консультацию ', // для редактирования типа записи
+			'new_item'           => 'Новый заявка на консультацию', // текст новой записи
+			'view_item'          => 'Смотреть заявку на консультацию', // для просмотра записи этого типа.
+			'search_items'       => 'Искать заявку на консультацию', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Заявки на консультацию юристу', // название меню
+		],
+		'public'              => false,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 40,
+		'menu_icon'           => 'dashicons-format-status',
+		'hierarchical'        => false,
+		'supports'            => ['title', 'editor'],
+		'has_archive' => false
 	]);
 }
 
@@ -90,7 +117,8 @@ function nocredits_scripts() {
 	wp_enqueue_style( 'nocredits-style',
 		(get_template_directory_uri() . '/assets/src/scss/styles.css'),
 		[], '1.0.0', 'all' );
-
+	wp_enqueue_script('jquery');
+	wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/src/js/main.js', array('jquery'), false, true);
 }
 
 function nocredits_widgets() {
@@ -132,7 +160,27 @@ function nocredits_widgets() {
 	]);
 	register_widget('Nocredits_Widget_Text');
 }
-
+//обработка без ajax
 function nocredits_modalform() {
 	var_dump($_POST);
+}
+//обработка главного модального окна с вопросом
+function nocredits_modalform_handler() {
+	echo "all oK! ";
+	wp_die();
+}
+
+function nocredits_viewscount_column($col_name, $id) {
+	if($col_name !== 'nocredits_views') return;
+
+	$views = get_post_meta($id, 'nocredits_views', true );
+	echo $views ? $views : 0;
+}
+//добавление столбца в раздел Статьи
+function nocredits_add_viewscolumn($defaults) {
+	$type = get_current_screen();
+	if ($type->post_type === 'articles') {
+		$defaults['nocredits_views'] = 'Количество просмотров статьи';
+	}
+	return $defaults;
 }

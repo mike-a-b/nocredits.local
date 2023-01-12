@@ -48,9 +48,8 @@
 <!-- Modal window form -->
 <div class="modal fade" id="modal__question" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" class="modal-content">
+        <div class="modal-content">
             <h5 class="modal-title" id="exampleModalLabel">Задать вопрос</h5>
-
             <div class="form-control">
                 <label for="#modal__question__yourname">Имя</label>
                 <input id="#modal__question__yourname" type="text"  name="username" placeholder="Ваше имя">
@@ -77,56 +76,54 @@
                     Я принимаю условия Политики конфиденциальности
                 </label>
             </div>
-            <input type="hidden" name="action" value="nocredits_modalform">
-            <button type="submit" class="btn btn-primary" name="submit" data-bs-dismiss="modal">Отправить</button>
-        </form>>
+            <input type="hidden" name="action" value="nocredits_modalform_handle">
+            <button type="submit" class="btn btn-primary sendButton"
+                    name="submit" data-bs-dismiss="modal" data-id="<?php echo ""; ?>"
+                    data-href="<?php echo esc_url(admin_url('admin-ajax.php')); ?>">
+                Отправить
+            </button>
+        </div>>
     </div>
 </div>
+<script type="application/javascript">
+    document.querySelector(".bubu").addEventListener("scroll", function() {
+        console.clear();
 
+        console.log(
+            "↓↑ end:", this.scrollHeight === this.scrollTop + this.clientHeight,
+
+            this.scrollHeight, this.scrollTop, this.clientHeight
+        );
+    });
+    window.addEventListener('load', function () {
+        const sendQuestionBtn = document.querySelector('.sendButton');
+        const id = sendQuestionBtn.getAttribute('data-id');
+        var pageReadToEnd = false;
+
+        sendQuestionBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const data = new FormData();
+            data.append('action', 'sendModalForm');
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', sendQuestionBtn.getAttribute('data-href'));
+            xhr.send(data);
+            sendQuestionBtn.disabled = true;
+            xhr.addEventListener('readystatechange', function () {
+                if (xhr.readyState !== 4) return;
+                if (xhr.status === 200 ) {
+                    console.log(xhr.responseText);
+                } else {
+                    console.log(xhr.statusText);
+                }
+                sendQuestionBtn.disabled = false;
+            })
+        })
+    })
+</script>
 <?php wp_footer(); ?>
 </body>
-<script type="module" src="<?php echo get_template_directory_uri(); ?>/assets/src/js/main.js"></script>
+
 <script>
-//footer change blocks decide on design
-    var footerContacts = document.getElementById('footer__contacts');
-    var footerleftContacts = document.getElementById('footer__contacts__mobile');
-    var womanImg = document.getElementById('article__left-image__woman');
-    var rightwomanImg = document.getElementsByClassName('right');
-    //article2 objects
-    var article2left_img = document.getElementsByClassName('left');
-    //one time call to init
-    changeInnerHtml();
-
-    window.addEventListener('resize', (e) => {
-        changeInnerHtml();
-    });
-
-    function changeInnerHtml() {
-
-        //main
-        if(window.innerWidth <= 768) {
-            // footerleftContacts.innerHTML = footerContacts.innerHTML;
-            // footerContacts.innerHTML ='';
-
-            // womanImg.style.display = 'block';
-            // rightwomanImg[0].style.display = 'none';
-
-        } else {
-            // footerContacts.innerHTML = footerleftContacts.innerHTML;
-            // footerleftContacts.innerHTML = '';
-
-            // womanImg.style.display = 'none';
-            // rightwomanImg[0].style.display = 'block';
-        }
-        if(window.innerWidth <= 1024) {
-            article2left_img[0].style.display = 'none';
-        } else {
-            article2left_img[0].style.display = 'flex';
-        }
-    }
-
-
-
     function btn1onclick() {
         document.getElementById('btn2').classList.add('unchecked');
         document.getElementById('btn1').classList.remove('unchecked');
@@ -135,6 +132,7 @@
         document.getElementById('btn1').classList.add('unchecked');
         document.getElementById('btn2').classList.remove('unchecked');
     }
+
     function gohome() {
      window.location.href = '/';
     }

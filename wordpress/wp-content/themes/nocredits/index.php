@@ -250,9 +250,10 @@ get_header();
                     <img src="<?php echo get_template_directory_uri(). '/assets/src/images/woman_ellipse.png'?>" alt="Онлайн-консультация с юристом" class="faq__question__womanimg--mobile" >
                     <img src="<?php echo get_template_directory_uri(). '/assets/src/images/emblem_mobile.png'?>" alt="Онлайн-консультация с юристом" class="faq__imageemblema--mobile">
                 </div>
-				<form action="#">
+				<form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
 					<div>
 						<textarea class="faq__question__textarea" name="question"  placeholder="Задать вопрос"></textarea>
+                        <input type="hidden" name="action" value="nocredits_form_handle">
 						<button type="submit" class="btn btn-primary faq__question__sendbutton">Отправить
 						</button>
 					</div>
