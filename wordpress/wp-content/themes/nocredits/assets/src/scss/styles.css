@@ -11051,7 +11051,7 @@ input[type=button]:active {
   border-radius: 12px;
   text-align: center;
 }
-.container-fluid.faq .faq__question form > div, .faq.container-sm .faq__question form > div, .faq.container-md .faq__question form > div, .faq.container-lg .faq__question form > div, .faq.container-xl .faq__question form > div, .faq.container-xxl .faq__question form > div {
+.container-fluid.faq .faq__question form > form, .faq.container-sm .faq__question form > form, .faq.container-md .faq__question form > form, .faq.container-lg .faq__question form > form, .faq.container-xl .faq__question form > form, .faq.container-xxl .faq__question form > form {
   display: flex;
   align-content: flex-start;
   align-items: flex-start;

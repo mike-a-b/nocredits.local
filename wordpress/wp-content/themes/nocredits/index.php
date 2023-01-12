@@ -251,12 +251,12 @@ get_header();
                     <img src="<?php echo get_template_directory_uri(). '/assets/src/images/emblem_mobile.png'?>" alt="Онлайн-консультация с юристом" class="faq__imageemblema--mobile">
                 </div>
 				<form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
-					<div>
+					<form>
 						<textarea class="faq__question__textarea" name="question"  placeholder="Задать вопрос"></textarea>
                         <input type="hidden" name="action" value="nocredits_form_handle">
 						<button type="submit" class="btn btn-primary faq__question__sendbutton">Отправить
 						</button>
-					</div>
+					</form>
 				</form>
 			</div>
 			<div class="col-4 faq__question__image">

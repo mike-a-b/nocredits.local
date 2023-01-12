@@ -11,8 +11,78 @@ add_action('wp_ajax_nopriv_sendModalForm', 'nocredits_modalform_handler');
 add_action('wp_ajax_sendModalForm', 'nocredits_modalform_handler');
 add_action('manage_posts_custom_column', 'nocredits_viewscount_column', 5, 2);
 add_filter('manage_posts_columns', 'nocredits_add_viewscolumn');
-//
+add_action('add_meta_boxes', 'nocredits_meta_boxes');
+
+//регистрация кастомных типов записей
 function nocredits_register_types() {
+	register_taxonomy( 'aliments',  ['questions'] , [
+		'labels'                => [
+			'name'              => 'Вопросы про алименты',
+			'singular_name'     => 'Вопросы про алименты',
+			'search_items'      => 'Найти вопросы про алименты',
+			'all_items'         => 'Алименты',
+			'view_item '        => 'Посмотреть все вопросы про алименты',
+			'edit_item'         => 'Редактировать вопросы про алименты',
+			'update_item'       => 'Обновить вопросы про алименты',
+			'add_new_item'      => 'Добавить вопрос про алименты',
+			'new_item_name'     => 'Добавить вопрос про алименты',
+			'menu_name'         => 'Алименты',
+		],
+		'description'           => 'Тема вопроса',
+		'public'                => true,
+		'hierarchical'          => true
+	]);
+	register_taxonomy( 'question_theme',  ['questions'] , [
+		'labels'                => [
+			'name'              => 'Тема вопроса',
+			'singular_name'     => 'Вопросы про тема вопроса',
+			'search_items'      => 'Найти вопросы про тема вопроса',
+			'all_items'         => 'Тема вопроса',
+			'view_item '        => 'Посмотреть все вопросы про тема вопроса',
+			'edit_item'         => 'Редактировать вопросы про тема вопроса',
+			'update_item'       => 'Обновить вопросы про тема вопроса',
+			'add_new_item'      => 'Добавить вопрос про тема вопроса',
+			'new_item_name'     => 'Добавить вопрос про тема вопроса',
+			'menu_name'         => 'Тема вопроса',
+		],
+		'description'           => 'Тема вопроса',
+		'public'                => true,
+		'hierarchical'          => true
+	]);
+	register_taxonomy( 'articles_popular',  ['articles'] , [
+		'labels'                => [
+			'name'              => 'Популярные статьи',
+			'singular_name'     => 'Популярные статьи ',
+			'search_items'      => 'Найти Популярные статьи',
+			'all_items'         => 'Популярные статьи',
+			'view_item '        => 'Посмотреть популярные статьи',
+			'edit_item'         => 'Редактировать gопулярные статьи',
+			'update_item'       => 'Обновить популярные статьи',
+			'add_new_item'      => 'Добавить статью в популярные статьи',
+			'new_item_name'     => 'Добавить статью в популярные статьи',
+			'menu_name'         => 'Популярные статьи',
+		],
+		'description'           => 'Статьи у которых просмотров больше всех',
+		'public'                => true,
+		'hierarchical'          => false
+	]);
+	register_taxonomy( 'articles_example',  ['articles'] , [
+		'labels'                => [
+			'name'              => 'Рубрика статей',
+			'singular_name'     => 'Рубрика статей',
+			'search_items'      => 'Найти рубрика статей',
+			'all_items'         => 'Рубрика статей',
+			'view_item '        => 'Посмотреть рубрику статей',
+			'edit_item'         => 'Редактировать статью рубрики статей',
+			'update_item'       => 'Обновить рубрику статей',
+			'add_new_item'      => 'Добавить статью в рубрика статей',
+			'new_item_name'     => 'Добавить статью в рубрика статей',
+			'menu_name'         => 'Рубрика статей',
+		],
+		'description'           => 'Тестовая рубрика для статей',
+		'public'                => true,
+		'hierarchical'          => false
+	]);
 	register_post_type( 'cases', [
 		'labels' => [
 			'name'               => 'Выигранные дела ', // основное название для типа записи
@@ -52,7 +122,7 @@ function nocredits_register_types() {
 			'menu_name'          => 'Статьи', // название меню
 		],
 		'public'              => true,
-		'menu_position'       => 20,
+		'menu_position'       => 11,
 		'menu_icon'           => 'dashicons-id-alt',
 		'hierarchical'        => false,
 		'supports'            => ['title', 'editor', 'thumbnail'],
@@ -74,10 +144,10 @@ function nocredits_register_types() {
 			'menu_name'          => 'Вопросы юристу', // название меню
 		],
 		'public'              => true,
-		'menu_position'       => 30,
+		'menu_position'       => 12,
 		'menu_icon'           => 'dashicons-megaphone',
 		'hierarchical'        => false,
-		'supports'            => ['title', 'editor', 'thumbnail'],
+		'supports'            => ['title', 'editor'],
 		'has_archive' => true
 	]);
 	register_post_type( 'orders', [
@@ -98,21 +168,22 @@ function nocredits_register_types() {
 		'public'              => false,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
-		'menu_position'       => 40,
+		'menu_position'       => 13,
 		'menu_icon'           => 'dashicons-format-status',
 		'hierarchical'        => false,
 		'supports'            => ['title', 'editor'],
 		'has_archive' => false
 	]);
-}
 
+}
+//начальные настройки кастомной темы
 function nocredits_setup() {
 	add_theme_support('title_tag');
 	add_theme_support('post-thumbnails');
 	register_nav_menu('menu_header', 'Меню в шапке');
 	register_nav_menu('menu_footer', 'Меню в подвале');
 }
-
+//подключение в очередь загрузки файлов стилей и скриптов
 function nocredits_scripts() {
 	wp_enqueue_style( 'nocredits-style',
 		(get_template_directory_uri() . '/assets/src/scss/styles.css'),
@@ -120,7 +191,7 @@ function nocredits_scripts() {
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/src/js/main.js', array('jquery'), false, true);
 }
-
+//регистрация зон вывода, виджетов кастомных
 function nocredits_widgets() {
 	register_sidebar([
 		'name' => 'Сайдбар в шапке сайта',
@@ -169,13 +240,25 @@ function nocredits_modalform_handler() {
 	echo "all oK! ";
 	wp_die();
 }
+//добавление кастомного поля для кастомной записи order "заявка"
+function nocredits_meta_boxes() {
+	add_meta_box('nocredits_order_date','Дата заявка', 'nocredits_order_date_cb', 'orders');
+}
 
+//колбек для обработки
+function nocredits_order_date_cb($post_obj) {
+	$date = get_post_meta($post_obj->ID, 'nocredits_order_date', true);
+	$date = $date ? : '';
+	echo '<span>'.$date.'</span>';
+}
+//Добавление столбца Количестов просмотров для записей типа "Статья"
 function nocredits_viewscount_column($col_name, $id) {
 	if($col_name !== 'nocredits_views') return;
 
 	$views = get_post_meta($id, 'nocredits_views', true );
 	echo $views ? $views : 0;
 }
+
 //добавление столбца в раздел Статьи
 function nocredits_add_viewscolumn($defaults) {
 	$type = get_current_screen();

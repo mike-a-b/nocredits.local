@@ -1,7 +1,6 @@
 <?php
 get_header();
 ?>
-
 <div class="container-fluid articles">
 	<?php
 	    if(have_posts()) :
@@ -12,17 +11,39 @@ get_header();
                 статьи и советы
             </h1>
 			<div class="col articles__background">
+                <?php
+                    $args = array(
+                        'post_type' => 'articles',
+                        'orderby' => 'rand',
+                        'posts_per_page' => 1,
+                    );
+
+                    $the_query = new WP_Query( $args );
+                    $title ="";
+                    if ( $the_query->have_posts() ) :
+                        ?>
 				<div class="articles__header">
+                    <?php
+                        while ( $the_query->have_posts() ) {
+                            $the_query->the_post();
+                    ?>
 					<h1 class="articles__header_h1">
-						Сбербанк снизил ставки по вкладам<br> и потребительским кредитам
+						<?php
+						    $title .= '<a href="'. get_permalink() .'">'. get_the_title() .'</a>';
+                            echo $title;
+                        ?>
 					</h1>
 					<p>
-						Минимальная ставка по кредитам снизилась с 21,9 до 19,9%.<br>
-						8 апреля ЦБ понизил ключевую ставку с 20 до 17%. По данным<br>
-						с сайта банка, снизились и ставки по вкладам для физлиц
+                        <?php echo get_the_content(); ?>
 					</p>
-					<p>08.08.2022, Автор</p>
-					<p><a href="#">Подробнее <b> > </b></a></p>
+					<p>
+                        <?php echo get_the_date() . ", ". get_the_author(); ?>
+                    </p>
+					<p><a href="<?php echo get_the_permalink(); ?>">Подробнее <b> > </b></a></p>
+					<?php
+                        } //endwhile
+                    wp_reset_postdata();
+					?>
 				</div>
 			</div>
 		</div>
@@ -40,15 +61,18 @@ get_header();
 			</div>
 			<div class="col-8">
 				<div class="popular__header__right">
-					<a href="#"><img src="images/arrowleft_icon.png" alt="Влево"></a>
-					<a href="#"><img src="images/arrowright_icon.png" alt="Вправо"></a>
+					<a href="#"><img src="<?php echo get_template_directory_uri();?>/assets/src/images/arrowleft_icon.png" alt="Влево"></a>
+					<a href="#"><img src="<?php echo get_template_directory_uri();?>/assets/src/images/arrowright_icon.png" alt="Вправо"></a>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col popular__articles">
+                <?php
+
+                ?>
 				<div class="popular__articles__card col-4">
-					<img src="images/articles_image.png" alt="изображение статьи">
+					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
 					<div class="popular__articles__wrapper">
 						<p>Сбербанк снизил ставки<br>
 							по вкладам и потребительским<br>
@@ -63,7 +87,7 @@ get_header();
 					</div>
 				</div>
 				<div class="popular__articles__card col-4">
-					<img src="images/articles_image.png" alt="изображение статьи">
+					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
 					<div class="popular__articles__wrapper">
 						<p class="">Сбербанк снизил ставки<br>
 							по вкладам и потребительским<br>
@@ -78,7 +102,7 @@ get_header();
 					</div>
 				</div>
 				<div class="popular__articles__card col-4">
-					<img src="images/articles_image.png" alt="изображение статьи">
+					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
 					<div class="popular__articles__wrapper">
 						<p>Сбербанк снизил ставки<br>
 							по вкладам и потребительским<br>
@@ -118,7 +142,7 @@ get_header();
 		<div class="row">
 			<div class="col allarticles__articles">
 				<div class="allarticles__articles__card col">
-					<img src="images/articles_image.png" alt="изображение статьи">
+					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
 					<div class="allarticles__articles__wrapper">
 						<p>Сбербанк снизил ставки
 							по вкладам и потребительским
@@ -133,7 +157,7 @@ get_header();
 					</div>
 				</div>
 				<div class="allarticles__articles__card col">
-					<img src="images/articles_image.png" alt="изображение статьи">
+					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
 					<div class="allarticles__articles__wrapper">
 						<p class="">Сбербанк снизил ставки
 							по вкладам и потребительским
@@ -148,7 +172,7 @@ get_header();
 					</div>
 				</div>
 				<div class="allarticles__articles__card col">
-					<img src="images/articles_image.png" alt="изображение статьи">
+					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
 					<div class="allarticles__articles__wrapper">
 						<p>Сбербанк снизил ставки
 							по вкладам и потребительским
@@ -163,7 +187,7 @@ get_header();
 					</div>
 				</div>
 				<div class="allarticles__articles__card col">
-					<img src="images/articles_image.png" alt="изображение статьи">
+					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
 					<div class="allarticles__articles__wrapper">
 						<p class="">Сбербанк снизил ставки
 							по вкладам и потребительским
@@ -195,7 +219,7 @@ get_header();
                                 Нет статей
                             </h1>
                             <p>
-
+                                Зайдите позже
                             </p>
                             <p></p>
                             <p><a href="#">Подробнее <b> > </b></a></p>
@@ -204,7 +228,7 @@ get_header();
                 </div>
             </div>
     <?php
-        endif;
+        endif; endif;
     ?>
 </div>
 <?php
