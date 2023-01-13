@@ -22,9 +22,9 @@ get_header();
 								     alt="<?php echo get_field('cases_img')['alt']; ?>">
 							</div>
 							<div class="right_col">
-								<div class="right_col_worknumber">
-									<?php the_title(); ?>
-								</div>
+                                <div class="right_col_worknumber">
+                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                </div>
 								<h4>
 									<?php the_field('cases_fio'); ?>
 								</h4>
@@ -74,7 +74,6 @@ get_header();
 			</div>
 		</div>
 	</div>
-
 <?php
 get_footer();
 ?>

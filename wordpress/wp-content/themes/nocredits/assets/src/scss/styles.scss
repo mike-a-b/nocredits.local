@@ -2041,45 +2041,58 @@ input[type=button] {
 
 
 .container-fluid.articles {
- h1 {
+  h1.articles__h1 {
   margin-top: 95px;
   margin-bottom: 64px;
  }
  .articles__background {
   width: 1180px;
-  height: 344px;
+  max-height: 344px;
+  height: auto;
   background-image: url("../images/articles_background.png");
-  background-size: contain;
+  background-size: auto;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 20px;
   padding:48px 52px;
-
+  padding-top:20px;
   .articles__header {
-   //position: relative;
+   position: relative;
+   height: 100%;
    .articles__header_h1 {
-    margin: 0;
-    height: 60px;
-    font-family: 'Gilroy', Serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 125%;
-    color: #FFFFFF;
-    text-transform: none;
+     a {
+       margin: 0;
+       height: 60px;
+       font-family: 'Gilroy', Serif;
+       font-style: normal;
+       font-weight: 500;
+       font-size: 24px;
+       line-height: 125%;
+       color: #FFFFFF;
+       text-transform: none;
+       text-decoration: none;
+     }
    }
    p {
     color:white;
     font-family: 'Gilroy';
     font-style: normal;
     font-weight: 400;
+    position:relative;
    }
    p:nth-child(2) {
     font-size: 18px;
+    margin-top: 1rem;
+    position: relative;
    }
    p:nth-child(3) {
+    margin-top: 1rem;
     font-size: 13px;
     line-height: 125%;
     color: #F3F3F6;
+    top:20%;
+    left: 0;
+    position: relative;
    }
    p:nth-child(4) {
     a {
@@ -2089,6 +2102,9 @@ input[type=button] {
      color: #FFFFFF;
      text-decoration: none;
     }
+    top:20%;
+    left: 0;
+    position: relative;
    }
   }
  }
@@ -2130,6 +2146,7 @@ input[type=button] {
   flex-direction: row;
   align-items: stretch;
   justify-content: space-between;
+  gap:10px;
   .popular__articles__card{
    display: flex;
    flex: 1 1 auto;
@@ -2137,11 +2154,11 @@ input[type=button] {
    justify-content: stretch;
    align-items: flex-start;
    background-color: white;
-   max-width: 377px;
-   max-height: 360+220px;
+   max-width: 32%;
+   max-height: 640px;
    border-radius: 15px;
    img {
-    max-width: 377px;
+    max-width: 100%;
     max-height: 220px;
     border-radius: 15px;
    }
@@ -2168,18 +2185,18 @@ input[type=button] {
      line-height: 150%;
      color: #495057;
     }
-    &:nth-child(3) {
-     font-weight: 400;
-     font-size: 13px;
-     line-height: 130%;
-     color: #8C8C8D;
-    }
-    &:nth-child(4) {
-     font-weight: 500;
-     font-size: 16px;
-     line-height: 150%;
-     color: #2C4D84;
-    }
+    //&:nth-child(3) {
+    // font-weight: 400;
+    // font-size: 13px;
+    // line-height: 130%;
+    // color: #8C8C8D;
+    //}
+    //&:nth-child(4) {
+    // font-weight: 500;
+    // font-size: 16px;
+    // line-height: 150%;
+    // color: #2C4D84;
+    //}
    }
   }
  }
