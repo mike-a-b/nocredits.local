@@ -86,15 +86,6 @@
     </div>
 </div>
 <script type="application/javascript">
-    document.querySelector(".bubu").addEventListener("scroll", function() {
-        console.clear();
-
-        console.log(
-            "↓↑ end:", this.scrollHeight === this.scrollTop + this.clientHeight,
-
-            this.scrollHeight, this.scrollTop, this.clientHeight
-        );
-    });
     window.addEventListener('load', function () {
         const sendQuestionBtn = document.querySelector('.sendButton');
         const id = sendQuestionBtn.getAttribute('data-id');
@@ -121,6 +112,7 @@
     })
 </script>
 <?php wp_footer(); ?>
+
 </body>
 
 <script>

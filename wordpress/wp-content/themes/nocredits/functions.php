@@ -8,7 +8,9 @@ add_action( 'init', 'nocredits_register_types' );
 add_action('admin_post_nopriv_nocredits_form_handle', 'nocredits_modalform');
 add_action('admin_post_nocredits_form_handle', 'nocredits_modalform');
 add_action('wp_ajax_nopriv_sendModalForm', 'nocredits_modalform_handler');
-add_action('wp_ajax_sendModalForm', 'nocredits_modalform_handler');
+add_action('wp_ajax_sendModalForm', 'nocredits_count_handler');
+add_action('wp_ajax_nopriv_setViews', 'nocredits_count_handler');
+add_action('wp_ajax_setViews', 'nocredits_count_handler');
 add_action('manage_posts_custom_column', 'nocredits_viewscount_column', 5, 2);
 add_filter('manage_posts_columns', 'nocredits_add_viewscolumn');
 add_action('add_meta_boxes', 'nocredits_meta_boxes');
@@ -49,23 +51,23 @@ function nocredits_register_types() {
 		'public'                => true,
 		'hierarchical'          => true
 	]);
-	register_taxonomy( 'articles_popular',  ['articles'] , [
-		'labels'                => [
-			'name'              => 'Популярные статьи',
-			'singular_name'     => 'Популярные статьи ',
-			'search_items'      => 'Найти Популярные статьи',
-			'all_items'         => 'Популярные статьи',
-			'view_item '        => 'Посмотреть популярные статьи',
-			'edit_item'         => 'Редактировать gопулярные статьи',
-			'update_item'       => 'Обновить популярные статьи',
-			'add_new_item'      => 'Добавить статью в популярные статьи',
-			'new_item_name'     => 'Добавить статью в популярные статьи',
-			'menu_name'         => 'Популярные статьи',
-		],
-		'description'           => 'Статьи у которых просмотров больше всех',
-		'public'                => true,
-		'hierarchical'          => false
-	]);
+//	register_taxonomy( 'articles_popular',  ['articles'] , [
+//		'labels'                => [
+//			'name'              => 'Популярные статьи',
+//			'singular_name'     => 'Популярные статьи ',
+//			'search_items'      => 'Найти Популярные статьи',
+//			'all_items'         => 'Популярные статьи',
+//			'view_item '        => 'Посмотреть популярные статьи',
+//			'edit_item'         => 'Редактировать gопулярные статьи',
+//			'update_item'       => 'Обновить популярные статьи',
+//			'add_new_item'      => 'Добавить статью в популярные статьи',
+//			'new_item_name'     => 'Добавить статью в популярные статьи',
+//			'menu_name'         => 'Популярные статьи',
+//		],
+//		'description'           => 'Статьи у которых просмотров больше всех',
+//		'public'                => true,
+//		'hierarchical'          => false
+//	]);
 	register_taxonomy( 'articles_example',  ['articles'] , [
 		'labels'                => [
 			'name'              => 'Рубрика статей',
@@ -83,6 +85,23 @@ function nocredits_register_types() {
 		'public'                => true,
 		'hierarchical'          => false
 	]);
+//	register_taxonomy( 'articles_example2',  ['articles'] , [
+//		'labels'                => [
+//			'name'              => 'Банки',
+//			'singular_name'     => 'Рубрика банки',
+//			'search_items'      => 'Найти рубрику статей банки',
+//			'all_items'         => 'Рубрика статей банки',
+//			'view_item '        => 'Посмотреть рубрику статей банки',
+//			'edit_item'         => 'Редактировать статью рубрики статей банки',
+//			'update_item'       => 'Обновить рубрику статей - банки',
+//			'add_new_item'      => 'Добавить статью в рубрика статей банки',
+//			'new_item_name'     => 'Добавить статью в рубрика статей банки',
+//			'menu_name'         => 'Банки',
+//		],
+//		'description'           => 'Тестовая рубрика для статей',
+//		'public'                => true,
+//		'hierarchical'          => false
+//	]);
 	register_post_type( 'cases', [
 		'labels' => [
 			'name'               => 'Выигранные дела ', // основное название для типа записи
@@ -238,6 +257,10 @@ function nocredits_modalform() {
 //обработка главного модального окна с вопросом
 function nocredits_modalform_handler() {
 	echo "all oK! ";
+	wp_die();
+}
+function nocredits_count_handler() {
+	echo var_dump($_POST);
 	wp_die();
 }
 //добавление кастомного поля для кастомной записи order "заявка"

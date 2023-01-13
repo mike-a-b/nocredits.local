@@ -10419,7 +10419,7 @@ input[type=button]:active {
   text-align: center;
 }
 .header .navbar .navbar-nav {
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: stretch;
 }
 .header .nav-link:hover {
@@ -12302,6 +12302,11 @@ input[type=button]:active {
 }
 .container-fluid.articles .popular__articles .popular__articles__card .popular__articles__wrapper, .articles.container-sm .popular__articles .popular__articles__card .popular__articles__wrapper, .articles.container-md .popular__articles .popular__articles__card .popular__articles__wrapper, .articles.container-lg .popular__articles .popular__articles__card .popular__articles__wrapper, .articles.container-xl .popular__articles .popular__articles__card .popular__articles__wrapper, .articles.container-xxl .popular__articles .popular__articles__card .popular__articles__wrapper {
   padding: 32px 36px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .container-fluid.articles .popular__articles .popular__articles__card .popular__articles__wrapper > p, .articles.container-sm .popular__articles .popular__articles__card .popular__articles__wrapper > p, .articles.container-md .popular__articles .popular__articles__card .popular__articles__wrapper > p, .articles.container-lg .popular__articles .popular__articles__card .popular__articles__wrapper > p, .articles.container-xl .popular__articles .popular__articles__card .popular__articles__wrapper > p, .articles.container-xxl .popular__articles .popular__articles__card .popular__articles__wrapper > p {
   font-family: "Gilroy", Serif;
@@ -12314,13 +12319,26 @@ input[type=button]:active {
   margin: 0;
   padding-bottom: 16px;
 }
+.container-fluid.articles .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(1), .articles.container-sm .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(1), .articles.container-md .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(1), .articles.container-lg .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(1), .articles.container-xl .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(1), .articles.container-xxl .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(1) {
+  font-weight: bold;
+  max-height: 75px;
+}
 .container-fluid.articles .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(2), .articles.container-sm .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(2), .articles.container-md .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(2), .articles.container-lg .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(2), .articles.container-xl .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(2), .articles.container-xxl .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(2) {
-  font-family: "Gilroy", Serif;
-  font-style: normal;
-  font-weight: 400;
+  max-height: 120px;
   font-size: 16px;
   line-height: 150%;
   color: #495057;
+}
+.container-fluid.articles .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(3), .articles.container-sm .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(3), .articles.container-md .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(3), .articles.container-lg .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(3), .articles.container-xl .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(3), .articles.container-xxl .popular__articles .popular__articles__card .popular__articles__wrapper > p:nth-child(3) {
+  font-size: 13px;
+  line-height: 130%;
+  color: #8C8C8D;
+}
+.container-fluid.articles .popular__articles .popular__articles__card .popular__articles__wrapper > p .popular__articles__link, .articles.container-sm .popular__articles .popular__articles__card .popular__articles__wrapper > p .popular__articles__link, .articles.container-md .popular__articles .popular__articles__card .popular__articles__wrapper > p .popular__articles__link, .articles.container-lg .popular__articles .popular__articles__card .popular__articles__wrapper > p .popular__articles__link, .articles.container-xl .popular__articles .popular__articles__card .popular__articles__wrapper > p .popular__articles__link, .articles.container-xxl .popular__articles .popular__articles__card .popular__articles__wrapper > p .popular__articles__link {
+  font-size: 16px;
+  line-height: 150%;
+  color: #2C4D84;
+  text-decoration: none;
 }
 
 .allarticles h3, .allarticles .h3 {
@@ -12337,6 +12355,7 @@ input[type=button]:active {
   flex-direction: row;
   align-items: flex-start;
   max-width: 100%;
+  width: 100%;
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px;
@@ -12348,22 +12367,33 @@ input[type=button]:active {
   justify-content: flex-start;
   align-items: flex-start;
   background-color: white;
-  max-width: 578px;
   max-height: 507px;
-  min-width: 400px;
+  height: 100%;
   flex-wrap: wrap;
-  width: 100%;
+  max-width: 48%;
+  width: 48%;
   gap: 20px;
   border-radius: 15px;
 }
 .allarticles .allarticles__articles__card img {
-  max-width: 578px;
+  max-width: 100%;
   max-height: 220px;
   width: 100%;
   border-radius: 15px;
 }
+.allarticles .allarticles__articles__card .allarticles__title {
+  font-weight: bold;
+  max-height: 75px;
+  padding: 0 36px;
+  margin: 0;
+}
 .allarticles .allarticles__articles__card .allarticles__articles__wrapper {
-  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 36px 32px 36px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
 }
 .allarticles .allarticles__articles__card .allarticles__articles__wrapper > p {
   font-family: "Gilroy", Serif;
@@ -12375,25 +12405,22 @@ input[type=button]:active {
   margin: 0;
   padding-bottom: 16px;
 }
-.allarticles .allarticles__articles__card .allarticles__articles__wrapper > p:nth-child(2) {
-  font-family: "Gilroy", Serif;
-  font-style: normal;
-  font-weight: 400;
+.allarticles .allarticles__articles__card .allarticles__articles__wrapper > p:nth-child(1) {
+  max-height: 120px;
   font-size: 16px;
   line-height: 150%;
   color: #495057;
 }
-.allarticles .allarticles__articles__card .allarticles__articles__wrapper > p:nth-child(3) {
-  font-weight: 400;
+.allarticles .allarticles__articles__card .allarticles__articles__wrapper > p:nth-child(2) {
   font-size: 13px;
   line-height: 130%;
   color: #8C8C8D;
 }
-.allarticles .allarticles__articles__card .allarticles__articles__wrapper > p:nth-child(4) {
-  font-weight: 500;
+.allarticles .allarticles__articles__card .allarticles__articles__wrapper > p .popular__articles__link {
   font-size: 16px;
   line-height: 150%;
   color: #2C4D84;
+  text-decoration: none;
 }
 .allarticles .allarticles__articles__card:nth-child(4) {
   margin-bottom: 150px;
@@ -12411,7 +12438,7 @@ input[type=button]:active {
   margin-right: 5px;
   margin-bottom: 1rem;
 }
-.allarticles .allarticles__filters button.readmore:nth-child(8) {
+.allarticles .allarticles__filters button.readmore:nth-child(3) {
   border: none;
   background: transparent;
   color: #2C4D84;
@@ -13466,7 +13493,7 @@ input[type=button]:active {
   padding-left: 2px !important;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1800px) {
   .container {
     max-width: 1180px;
     padding-left: 2%;

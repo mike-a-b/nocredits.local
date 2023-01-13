@@ -4,18 +4,18 @@
 	<meta charset="<?php echo bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="PlasticaCenter.ru">
-    <meta property="og:title" content="Заголовок с Title подгружаем автоматически!">
-    <meta property="og:description" content="Описание с Description подгружаем автоматически!.">
-    <meta property="og:url" content="Полный URL https://bankrotstvo.info/video/, пример, со слешами в конце!">
+    <meta property="og:site_name" content="yurist-bfl.ru">
+    <meta property="og:title" content="title">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="">
     <meta property="og:locale" content="ru_RU">
-    <meta property="og:image" content="https://bankrotstvo.infoopen_graph_logo.png">
-    <link rel="canonical" href="https://ТАЖЕ САМАЯ СТРАНИЦА С КОТОРОЙ ЭТОТ КОД/" />
+    <meta property="og:image" content="<?php echo get_template_directory_uri(). '/assets/src/images/logo.png'; ?>">
+    <link rel="canonical" href="<?php ?>" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Forum">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <?php wp_head(); ?>
 </head>
-<body>
+<body class="bubu">
 <div class="container">
 	<div class="row header">
 		<div class="col-1">

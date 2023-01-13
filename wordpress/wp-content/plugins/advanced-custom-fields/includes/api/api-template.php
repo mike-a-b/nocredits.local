@@ -67,7 +67,7 @@ function get_field( $selector, $post_id = false, $format_value = true ) {
  *  @param mixed  $post_id  The post_id of which the value is saved against.
  *  @return  void
  */
-function the_field( $selector, $post_id = false, $format_value = true ) {
+function    the_field( $selector, $post_id = false, $format_value = true ) {
 	$value = get_field( $selector, $post_id, $format_value );
 
 	if ( is_array( $value ) ) {

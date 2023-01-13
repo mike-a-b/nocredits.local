@@ -1,37 +1,35 @@
 <?php
+$args = array(
+	'post_type' => 'articles',
+	'orderby' => 'rand',
+	'posts_per_page' => 1,
+);
+
+$the_query = new WP_Query( $args );
+$title ="";
+$content ="";
+?>
+<?php
 get_header();
 ?>
 <div class="container-fluid articles">
-	<?php
-	    if(have_posts()) :
-	?>
 	<div class="container">
 		<div class="row ">
 			<h1 class = "articles__h1">
                 статьи и советы
             </h1>
 			<div class="col articles__background">
-                <?php
-                    $args = array(
-                        'post_type' => 'articles',
-                        'orderby' => 'rand',
-                        'posts_per_page' => 1,
-                    );
 
-                    $the_query = new WP_Query( $args );
-                    $title ="";
-                    if ( $the_query->have_posts() ) :
-                        ?>
 				<div class="articles__header">
                     <?php
                         while ( $the_query->have_posts() ) {
                             $the_query->the_post();
                     ?>
 					<h1 class="articles__header_h1">
-						<?php
-						    $title .= '<a href="'. get_permalink() .'">'. get_the_title() .'</a>';
-                            echo $title;
-                        ?>
+                    <?php
+                        $title .= '<a href="'. get_permalink() .'">'. get_the_title() .'</a>';
+                        echo $title;
+                    ?>
 					</h1>
 					<p>
                         <?php echo get_the_content(); ?>
@@ -109,7 +107,7 @@ get_header();
                                 echo get_the_date() . ", ". get_the_author();
                             ?>
                         </p>
-						<p><a href="<?php the_permalink(); ?>">Подробнее <b> > </b></a></p>
+						<p><a class="popular__articles__link" href="<?php the_permalink(); ?>">Подробнее <b> > </b></a></p>
 					</div>
 				</div>
 				<?php
@@ -129,114 +127,45 @@ get_header();
 				</div>
 <!--Темы статей кнопочки-->
 				<div class="allarticles__filters">
-                    <?php
-                    $query = new WP_Query();
-                    $terms = get_terms([
-                            'taxonomy'      => [ 'aliments', 'question_theme']
-                    ]);
-                    ?>
-					<button type="button" class="btn btn-primary">Банки</button>
-					<button type="button" class="btn btn-primary unchecked">Недвижимость</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary readmore">Показать еще</button>
+					<button id="articles_example" type="button" class="btn btn-primary">Рубрика статьи</button>
+					<button id="articles_example2" type="button" class="btn btn-primary unchecked">Банки</button>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col allarticles__articles">
+				<?php
+				$my_posts = get_posts( array(
+					'numberposts' => 4,
+					'post_type'   => 'articles',
+				) );
+                foreach($my_posts as $post) :
+                    setup_postdata( $post );
+                ?>
 				<div class="allarticles__articles__card col">
-					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
+                    <?php the_post_thumbnail('full'); ?>
+                    <p class="allarticles__title">
+						<?php the_title(); ?>
+                    </p>
 					<div class="allarticles__articles__wrapper">
-						<p>Сбербанк снизил ставки
-							по вкладам и потребительским
-							кредитам
-						</p>
-						<p>Минимальная ставка по кредитам снизилась с 21,9 до 19,9%. 8 апреля ЦБ
-							понизил ключевую ставку с 20 до 17%.По данным с сайта банка, снизились и
-							ставки по вкладам для физлиц
-						</p>
-						<p>08.08.2022, Автор</p>
-						<p><a href="#">Подробнее <b> > </b></a></p>
+                        <p>
+							<?php the_content(); ?>
+                        </p>
+                        <p>
+                            <?php echo get_the_date() . ", ". get_the_author(); ?>
+                        </p>
+                        <p>
+                            <a class="popular__articles__link" href="<?php the_permalink(); ?>">Подробнее <b> > </b></a>
+                        </p>
 					</div>
 				</div>
-				<div class="allarticles__articles__card col">
-					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
-					<div class="allarticles__articles__wrapper">
-						<p class="">Сбербанк снизил ставки
-							по вкладам и потребительским
-							кредитам
-						</p>
-						<p>Минимальная ставка по кредитам снизилась с 21,9 до 19,9%. 8 апреля ЦБ
-							понизил ключевую ставку с 20 до 17%.По данным с сайта банка, снизились и
-							ставки по вкладам для физлиц
-						</p>
-						<p>08.08.2022, Автор</p>
-						<p><a href="#">Подробнее <b> > </b></a></p>
-					</div>
-				</div>
-				<div class="allarticles__articles__card col">
-					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
-					<div class="allarticles__articles__wrapper">
-						<p>Сбербанк снизил ставки
-							по вкладам и потребительским
-							кредитам
-						</p>
-						<p>Минимальная ставка по кредитам снизилась с 21,9 до 19,9%. 8 апреля ЦБ
-							понизил ключевую ставку с 20 до 17%.По данным с сайта банка, снизились и
-							ставки по вкладам для физлиц
-						</p>
-						<p>08.08.2022, Автор</p>
-						<p><a href="#">Подробнее <b> > </b></a></p>
-					</div>
-				</div>
-				<div class="allarticles__articles__card col">
-					<img src="<?php echo get_template_directory_uri();?>/assets/src/images/articles_image.png" alt="изображение статьи">
-					<div class="allarticles__articles__wrapper">
-						<p class="">Сбербанк снизил ставки
-							по вкладам и потребительским
-							кредитам
-						</p>
-						<p>Минимальная ставка по кредитам снизилась с 21,9 до 19,9%. 8 апреля ЦБ
-							понизил ключевую ставку с 20 до 17%.По данным с сайта банка, снизились и
-							ставки по вкладам для физлиц
-						</p>
-						<p>08.08.2022, Автор</p>
-						<p><a href="#">Подробнее <b> > </b></a></p>
-					</div>
-				</div>
+				<?php
+                endforeach;
+                wp_reset_postdata();
+                ?>
 			</div>
 		</div>
 	</div>
-    <?php
-        else :
-    ?>
-            <div class="container">
-                <div class="row ">
-
-                    <h1>
-                        статьи и советы
-                    </h1>
-                    <div class="col articles__background">
-                        <div class="articles__header">
-                            <h1 class="articles__header_h1">
-                                Нет статей
-                            </h1>
-                            <p>
-                                Зайдите позже
-                            </p>
-                            <p></p>
-                            <p><a href="#">Подробнее <b> > </b></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    <?php
-        endif; endif;
-    ?>
 </div>
 <?php
 get_footer();
