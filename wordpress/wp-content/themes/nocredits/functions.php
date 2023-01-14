@@ -8,7 +8,7 @@ add_action( 'init', 'nocredits_register_types' );
 add_action('admin_post_nopriv_nocredits_form_handle', 'nocredits_modalform');
 add_action('admin_post_nocredits_form_handle', 'nocredits_modalform');
 add_action('wp_ajax_nopriv_sendModalForm', 'nocredits_modalform_handler');
-add_action('wp_ajax_sendModalForm', 'nocredits_count_handler');
+add_action('wp_ajax_sendModalForm', 'nocredits_modalform_handler');
 add_action('wp_ajax_nopriv_setViews', 'nocredits_count_handler');
 add_action('wp_ajax_setViews', 'nocredits_count_handler');
 add_action('manage_posts_custom_column', 'nocredits_viewscount_column', 5, 2);
@@ -17,23 +17,6 @@ add_action('add_meta_boxes', 'nocredits_meta_boxes');
 
 //регистрация кастомных типов записей
 function nocredits_register_types() {
-//	register_taxonomy( 'aliments',  ['questions'] , [
-//		'labels'                => [
-//			'name'              => 'Вопросы про алименты',
-//			'singular_name'     => 'Вопросы про алименты',
-//			'search_items'      => 'Найти вопросы про алименты',
-//			'all_items'         => 'Алименты',
-//			'view_item '        => 'Посмотреть все вопросы про алименты',
-//			'edit_item'         => 'Редактировать вопросы про алименты',
-//			'update_item'       => 'Обновить вопросы про алименты',
-//			'add_new_item'      => 'Добавить вопрос про алименты',
-//			'new_item_name'     => 'Добавить вопрос про алименты',
-//			'menu_name'         => 'Алименты',
-//		],
-//		'description'           => 'Тема вопроса',
-//		'public'                => true,
-//		'hierarchical'          => true
-//	]);
 	register_taxonomy( 'question_theme',  ['questions'] , [
 		'labels'                => [
 			'name'              => 'Тема вопроса',
@@ -51,23 +34,6 @@ function nocredits_register_types() {
 		'public'                => true,
 		'hierarchical'          => true
 	]);
-//	register_taxonomy( 'articles_popular',  ['articles'] , [
-//		'labels'                => [
-//			'name'              => 'Популярные статьи',
-//			'singular_name'     => 'Популярные статьи ',
-//			'search_items'      => 'Найти Популярные статьи',
-//			'all_items'         => 'Популярные статьи',
-//			'view_item '        => 'Посмотреть популярные статьи',
-//			'edit_item'         => 'Редактировать gопулярные статьи',
-//			'update_item'       => 'Обновить популярные статьи',
-//			'add_new_item'      => 'Добавить статью в популярные статьи',
-//			'new_item_name'     => 'Добавить статью в популярные статьи',
-//			'menu_name'         => 'Популярные статьи',
-//		],
-//		'description'           => 'Статьи у которых просмотров больше всех',
-//		'public'                => true,
-//		'hierarchical'          => false
-//	]);
 	register_taxonomy( 'articles_example',  ['articles'] , [
 		'labels'                => [
 			'name'              => 'Рубрика статей',
@@ -85,23 +51,6 @@ function nocredits_register_types() {
 		'public'                => true,
 		'hierarchical'          => false
 	]);
-//	register_taxonomy( 'articles_example2',  ['articles'] , [
-//		'labels'                => [
-//			'name'              => 'Банки',
-//			'singular_name'     => 'Рубрика банки',
-//			'search_items'      => 'Найти рубрику статей банки',
-//			'all_items'         => 'Рубрика статей банки',
-//			'view_item '        => 'Посмотреть рубрику статей банки',
-//			'edit_item'         => 'Редактировать статью рубрики статей банки',
-//			'update_item'       => 'Обновить рубрику статей - банки',
-//			'add_new_item'      => 'Добавить статью в рубрика статей банки',
-//			'new_item_name'     => 'Добавить статью в рубрика статей банки',
-//			'menu_name'         => 'Банки',
-//		],
-//		'description'           => 'Тестовая рубрика для статей',
-//		'public'                => true,
-//		'hierarchical'          => false
-//	]);
 	register_post_type( 'cases', [
 		'labels' => [
 			'name'               => 'Выигранные дела ', // основное название для типа записи
@@ -193,7 +142,6 @@ function nocredits_register_types() {
 		'supports'            => ['title', 'editor'],
 		'has_archive' => false
 	]);
-
 }
 //начальные настройки кастомной темы
 function nocredits_setup() {
@@ -257,8 +205,32 @@ function nocredits_modalform() {
 }
 //обработка главного модального окна с вопросом
 function nocredits_modalform_handler() {
-	echo "all oK! ";
-	wp_die();
+	$name = $_POST['username'] ? wp_strip_all_tags($_POST['username']) : 'Аноним';
+	$code = $_POST['user_countrycode'] ? wp_strip_all_tags($_POST['user_countrycode']) : '+7';
+	$phone = $_POST['user_phone'];
+	$email = $_POST['usermail'] ? wp_strip_all_tags($_POST['usermail']) : '+7';
+	$question = $_POST['user_phone'] ? wp_strip_all_tags($_POST['user_question']) : '-------';
+	if($_POST['action']){
+		$post_id = wp_insert_post(wp_slash([
+			'post_title' => 'Заявка / вопрос №= ',
+			'post_type' => 'questions',
+			'post_content' => $question]));
+		if($post_id !== 0) {
+			wp_update_post( [
+				'ID'           => $post_id,
+				'post_title'   => 'Заявка / вопрос № ' . $post_id
+			] );
+			$date = get_the_date( $post_id );
+			update_field( 'nocredits_questions_name', $name, $post_id );
+			update_field( 'nocredits_questions_telephone', $code . $phone, $post_id );
+			update_field( 'nocredits_question_date', $date, $post_id );
+			update_field( 'nocredits_question_email', $email, $post_id );
+//			update_field( 'nocredits_question_status', 'new', $post_id );
+			//		wp_mail('')
+		} else echo "BAD BAD BAD ". $post_id;
+
+	}
+	header('Location: '. home_url());
 }
 function nocredits_count_handler() {
 //	echo var_dump($_POST);
@@ -270,12 +242,12 @@ function nocredits_count_handler() {
 }
 //добавление кастомного поля для кастомной записи order "заявка"
 function nocredits_meta_boxes() {
-	add_meta_box('nocredits_order_date','Дата заявка', 'nocredits_order_date_cb', 'orders');
+	add_meta_box('nocredits_question_date','Дата заявки / вопроса', 'nocredits_questions_date_cb', 'questions');
 }
 
 //колбек для обработки
-function nocredits_order_date_cb($post_obj) {
-	$date = get_post_meta($post_obj->ID, 'nocredits_order_date', true);
+function nocredits_questions_date_cb($post_obj) {
+	$date = get_post_meta($post_obj->ID, 'nocredits_question_date', true);
 	$date = $date ? : '';
 	echo '<span>'.$date.'</span>';
 }

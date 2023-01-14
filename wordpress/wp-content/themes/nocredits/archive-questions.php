@@ -23,7 +23,7 @@ get_header();
 			</div>
 		</div>
 		<div class="row">
-			<div class="col">
+			<div class="col" style="display: flex; gap: 2rem;">
 				<?php
 				$my_posts = get_posts( array(
 					'numberposts' => 20,

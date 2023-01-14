@@ -25,6 +25,10 @@ get_header();
 <div class="wait-call__background_emblema">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/src/images/emblem.png" alt="не нашли нужного ответа?">
 </div>
+<?php
+$comment = get_field('nocredits_comment');
+if(isset($comment)) :
+?>
 <div class="container-fluid faq-answer">
     <div class="container">
         <div class="row">
@@ -33,13 +37,11 @@ get_header();
                     <div class="faq-answer__left">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/src/images/faq-answer_woman.png" alt="Ответ юриста">
                         <h3>Иван Иванович</h3>
-                        <p>08.08.2022 в 13.45</p>
+                        <p><?php echo get_the_date(); ?></p>
                     </div>
                     <div class="faq-answer__right">
                         <p>
-                            Действия продавца неправомерны. Согласно ст. 18 Закона о защите прав потребителей экспертиза проводится в сроки, установленные в ст. 20-22 Закона для удовлетворения соответствующих требований потребителя. Поскольку Вы потребовали вернуть Вам деньги, к данной ситуации применимы положения ст. 22 Закона, в которой указано, что требования о возврате уплаченной
-                            за товар денежной суммы должны быть удовлетворены в 10-дневный срок (а не в 45 дней, как сказал продавец). Если этот срок истёк, экспертиза не проведена, а деньги Вам не возвращены, Вы вправе обратиться с жалобой в Роспотребнадзор, а также подать иск в суд, и потребовать возвраты суммы, уплаченной за телефон, неустойки, 50% штрафа от удовлетворенных судом исковых требований
-                            и компенсации морального вреда (п. 6 ст. 13, ст. 15 Закона о защите прав потребителей).
+                            <?php the_field('nocredits_comment'); ?>
                         </p>
                         <input type="button" class="btn btn-primary" value="Связаться с юристом">
                     </div>
@@ -48,7 +50,7 @@ get_header();
         </div>
     </div>
 </div>
-
+<?php endif; ?>
 <?php
     endif;
     get_footer();

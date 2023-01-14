@@ -48,7 +48,7 @@
 <!-- Modal window form -->
 <div class="modal fade" id="modal__question" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <form class="modal-content">
             <h5 class="modal-title" id="exampleModalLabel">Задать вопрос</h5>
             <div class="form-control">
                 <label for="#modal__question__yourname">Имя</label>
@@ -82,7 +82,7 @@
                     data-href="<?php echo esc_url(admin_url('admin-ajax.php')); ?>">
                 Отправить
             </button>
-        </div>>
+        </form>>
     </div>
 </div>
 <script type="application/javascript">
