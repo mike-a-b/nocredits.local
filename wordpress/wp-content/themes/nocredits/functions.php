@@ -17,34 +17,34 @@ add_action('add_meta_boxes', 'nocredits_meta_boxes');
 
 //регистрация кастомных типов записей
 function nocredits_register_types() {
-	register_taxonomy( 'aliments',  ['questions'] , [
-		'labels'                => [
-			'name'              => 'Вопросы про алименты',
-			'singular_name'     => 'Вопросы про алименты',
-			'search_items'      => 'Найти вопросы про алименты',
-			'all_items'         => 'Алименты',
-			'view_item '        => 'Посмотреть все вопросы про алименты',
-			'edit_item'         => 'Редактировать вопросы про алименты',
-			'update_item'       => 'Обновить вопросы про алименты',
-			'add_new_item'      => 'Добавить вопрос про алименты',
-			'new_item_name'     => 'Добавить вопрос про алименты',
-			'menu_name'         => 'Алименты',
-		],
-		'description'           => 'Тема вопроса',
-		'public'                => true,
-		'hierarchical'          => true
-	]);
+//	register_taxonomy( 'aliments',  ['questions'] , [
+//		'labels'                => [
+//			'name'              => 'Вопросы про алименты',
+//			'singular_name'     => 'Вопросы про алименты',
+//			'search_items'      => 'Найти вопросы про алименты',
+//			'all_items'         => 'Алименты',
+//			'view_item '        => 'Посмотреть все вопросы про алименты',
+//			'edit_item'         => 'Редактировать вопросы про алименты',
+//			'update_item'       => 'Обновить вопросы про алименты',
+//			'add_new_item'      => 'Добавить вопрос про алименты',
+//			'new_item_name'     => 'Добавить вопрос про алименты',
+//			'menu_name'         => 'Алименты',
+//		],
+//		'description'           => 'Тема вопроса',
+//		'public'                => true,
+//		'hierarchical'          => true
+//	]);
 	register_taxonomy( 'question_theme',  ['questions'] , [
 		'labels'                => [
 			'name'              => 'Тема вопроса',
-			'singular_name'     => 'Вопросы про тема вопроса',
-			'search_items'      => 'Найти вопросы про тема вопроса',
+			'singular_name'     => 'Вопросы по теме вопроса',
+			'search_items'      => 'Найти вопросы по теме',
 			'all_items'         => 'Тема вопроса',
-			'view_item '        => 'Посмотреть все вопросы про тема вопроса',
-			'edit_item'         => 'Редактировать вопросы про тема вопроса',
-			'update_item'       => 'Обновить вопросы про тема вопроса',
-			'add_new_item'      => 'Добавить вопрос про тема вопроса',
-			'new_item_name'     => 'Добавить вопрос про тема вопроса',
+			'view_item '        => 'Посмотреть тему вопроса',
+			'edit_item'         => 'Редактировать тему вопроса',
+			'update_item'       => 'Обновить тему вопроса',
+			'add_new_item'      => 'Добавить тему вопроса',
+			'new_item_name'     => 'Добавить тему вопроса',
 			'menu_name'         => 'Тема вопроса',
 		],
 		'description'           => 'Тема вопроса',
@@ -201,6 +201,7 @@ function nocredits_setup() {
 	add_theme_support('post-thumbnails');
 	register_nav_menu('menu_header', 'Меню в шапке');
 	register_nav_menu('menu_footer', 'Меню в подвале');
+	add_theme_support( 'title-tag' );
 }
 //подключение в очередь загрузки файлов стилей и скриптов
 function nocredits_scripts() {
@@ -260,7 +261,11 @@ function nocredits_modalform_handler() {
 	wp_die();
 }
 function nocredits_count_handler() {
-	echo var_dump($_POST);
+//	echo var_dump($_POST);
+	//записываем плюс один к количеству просмотров
+	if($_POST['nocredits_views']){
+		update_field('nocredits_views', $_POST['nocredits_views'], $_POST['id']);
+	}
 	wp_die();
 }
 //добавление кастомного поля для кастомной записи order "заявка"
@@ -281,7 +286,6 @@ function nocredits_viewscount_column($col_name, $id) {
 	$views = get_post_meta($id, 'nocredits_views', true );
 	echo $views ? $views : 0;
 }
-
 //добавление столбца в раздел Статьи
 function nocredits_add_viewscolumn($defaults) {
 	$type = get_current_screen();

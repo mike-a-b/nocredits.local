@@ -74,7 +74,7 @@ get_header();
 			</div>
 		</div>
 		<div class="row">
-			<div class="col col-sm-12 col-xs-12">
+			<div class="col col-sm-12">
 				<ul class="article2__footer__plus-list">
 					<li>Полное освобождение от долгов</li>
 					<li>Снятие ареста с имущества (которое наложили
@@ -86,7 +86,7 @@ get_header();
 					<li>Долги по кредитам, ипотеке, налогам списываются</li>
 				</ul>
 			</div>
-			<div class="col col-sm-12 col-xs-12">
+			<div class="col col-sm-12">
 				<ul class="article2__footer__minus-list">
 					<li>Стоит от 50 тысяч рублей и больше </li>
 					<li>Может длиться до 3 лет (реструктуризация)</li>
@@ -108,139 +108,45 @@ get_header();
 					Часто задаваемые вопросы
 				</h1>
 				<div class="faq__names">
-					<button type="button" class="btn btn-primary">Алименты</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary unchecked">Тема вопроса</button>
-					<button type="button" class="btn btn-primary readmore">Показать еще</button>
+					<button data-id="aliments" type="button" class="btn btn-primary">Алименты</button>
+					<button data-id="questions_theme" type="button" class="btn btn-primary unchecked">Тема вопроса</button>
 				</div>
                 <div id="faq__names__mobile">
                     <select name="faq__names" id="faq__names">
                         <option value="">Выберите тему вопроса</option>
-                        <option value="">Тема вопроса</option>
-                        <option value="">Тема вопроса</option>
                         <option value="">Тема вопроса</option>
                     </select>
                 </div>
 			</div>
 		</div>
 		<div class="row">
+			<?php
+			$posts = get_posts([
+				'numberposts' => 20,
+				'post_type'   => 'questions'
+			]);
+			global $post;
+			foreach($posts as $post) :
+			setup_postdata($post)
+			?>
 			<div class="col faq_c">
 				<div class="faq__card ">
 					<div class="faq__card__name">
-						Алименты
+						<?php the_title(); ?>
 					</div>
 					<div class="faq__card__description">
-						Может ли суд назначить алименты в твердой сумме,
-						если у плательщика изменилась жизненная ситуация
-						в худшую сторону по состоянию здоровья?
-						<div class="faq__card__readmore">
-						</div>
+						<?php the_content(); ?>
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="faq__card__readmore">
+                            </div>
+                        </a>
 					</div>
 					<div class="faq__card__date">
-						09.09.2022
+						<?php echo get_the_date()?>
 					</div>
 				</div>
 			</div>
-			<div class="col faq_c">
-				<div class="faq__card">
-					<div class="faq__card__name">
-						Алименты
-					</div>
-					<div class="faq__card__description">
-						Может ли суд назначить алименты в твердой сумме,
-						если у плательщика изменилась жизненная ситуация
-						в худшую сторону по состоянию здоровья?
-						<div class="faq__card__readmore">
-						</div>
-					</div>
-					<div class="faq__card__date">
-						09.09.2022
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col faq_c">
-				<div class="faq__card">
-					<div class="faq__card__name">
-						Алименты
-					</div>
-					<div class="faq__card__description">
-						Может ли суд назначить алименты в твердой сумме,
-						если у плательщика изменилась жизненная ситуация
-						в худшую сторону по состоянию здоровья?
-						<div class="faq__card__readmore">
-						</div>
-					</div>
-					<div class="faq__card__date">
-						09.09.2022
-					</div>
-				</div>
-			</div>
-			<div class="col faq_c">
-				<div class="faq__card">
-					<div class="faq__card__name">
-						Алименты
-					</div>
-					<div class="faq__card__description">
-						Может ли суд назначить алименты в твердой сумме,
-						если у плательщика изменилась жизненная ситуация
-						в худшую сторону по состоянию здоровья?
-						<div class="faq__card__readmore">
-						</div>
-					</div>
-					<div class="faq__card__date">
-						09.09.2022
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col faq_c">
-				<div class="faq__card">
-					<div class="faq__card__name">
-						Алименты
-					</div>
-					<div class="faq__card__description">
-						Может ли суд назначить алименты в твердой сумме,
-						если у плательщика изменилась жизненная ситуация
-						в худшую сторону по состоянию здоровья?
-						<div class="faq__card__readmore">
-						</div>
-					</div>
-					<div class="faq__card__date">
-						09.09.2022
-					</div>
-				</div>
-			</div>
-			<div class="col faq_c">
-				<div class="faq__card">
-					<div class="faq__card__name">
-						Алименты
-					</div>
-					<div class="faq__card__description">
-						Может ли суд назначить алименты в твердой сумме,
-						если у плательщика изменилась жизненная ситуация
-						в худшую сторону по состоянию здоровья?
-						<div class="faq__card__readmore">
-						</div>
-					</div>
-					<div class="faq__card__date">
-						09.09.2022
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<div class="faq__readall">
-					<a href="#">Смотреть все вопросы<img src="<?php echo get_template_directory_uri(). '/assets/src/images/readall__arrow.png'?>" alt="смотреть все" class="faq__readall__image"></a>
-				</div>
-			</div>
+            <?php endforeach; wp_reset_postdata(); ?>
 		</div>
 		<div class="row faq__question">
 			<div class="col-8">
@@ -332,8 +238,8 @@ get_header();
 					<input type="text" placeholder="Контактный телефон">
 					<input type="submit" value="Жду звонка">
 				</form>
-				<p>Заполняя форму, Вы соглашатесь на обработку персональных данных</p>
-			</div>
+                <p class="wait-call__p">Заполняя форму, Вы соглашатесь на <a class="wait-call__p" href="/policy/">обработку персональных данных</a></p>
+            </div>
 		</div>
 	</div>
 	<div class="container readyworks">
@@ -355,55 +261,31 @@ get_header();
 			</div>
 		</div>
 		<div class="row rw">
+            <?php
+            $posts = get_posts([
+				'numberposts' => 3,
+				'post_type'   => 'cases'
+			]);
+			foreach($posts as $post) :
+			    setup_postdata($post);
+            ?>
 			<div class="col-4 readyworks__block">
-				<h4>Дело А76-5893/2021</h4>
+                <h4><?php the_title(); ?></h4>
                 <div class="readyworks__block__line">
                     <div class="readyworks__block__summa">
                         <img src="<?php echo get_template_directory_uri(). '/assets/src/images/wallet_icon.png'?>" alt="Завершенные дела">
                         <span>Списанная сумма</span>
-                        <p>580 000 руб</p>
+                        <p><?php the_field('cases_summa'); ?> руб</p>
                     </div>
                     <div class="readyworks__block__duration">
                         <img src="<?php echo get_template_directory_uri(). '/assets/src/images/clock_icon.png'?>" alt="Завершенные дела">
                         <span style="">Длительность</span>
-                        <p>10 мес. 22 дн.</p>
+                        <p><?php the_field('cases_duration'); ?></p>
                     </div>
                 </div>
-				<a href="#">Смотреть дело ></a>
+                <a href="<?php the_permalink(); ?>">Смотреть дело ></a>
 			</div>
-			<div class="col-4 readyworks__block">
-				<h4>Дело А76-5893/2021</h4>
-                <div class="readyworks__block__line">
-                    <div class="readyworks__block__summa">
-                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/wallet_icon.png'?>" alt="Завершенные дела">
-                        <span>Списанная сумма</span>
-                        <p>580 000 руб</p>
-                    </div>
-                    <div class="readyworks__block__duration">
-                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/clock_icon.png'?>" alt="Завершенные дела">
-
-                        <span style="">Длительность</span>
-                        <p>10 мес. 22 дн.</p>
-                    </div>
-                </div>
-				<a href="#">Смотреть дело ></a>
-			</div>
-			<div class="col-4 readyworks__block">
-				<h4>Дело А76-5893/2021</h4>
-                <div class="readyworks__block__line">
-                    <div class="readyworks__block__summa">
-                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/wallet_icon.png'?>" alt="Завершенные дела">
-                        <span>Списанная сумма</span>
-                        <p>580 000 руб</p>
-                    </div>
-                    <div class="readyworks__block__duration">
-                        <img src="<?php echo get_template_directory_uri(). '/assets/src/images/clock_icon.png'?>" alt="Завершенные дела">
-                        <span style="">Длительность</span>
-                        <p>10 мес. 22 дн.</p>
-                    </div>
-                </div>
-				<a href="#">Смотреть дело ></a>
-			</div>
+            <?php endforeach; wp_reset_postdata(); ?>
 		</div>
 	</div>
 </div>
@@ -466,6 +348,9 @@ get_header();
 		</div>
 	</div>
 </div>
+<script type="application/javascript">
+
+</script>
 <?php
 get_footer();
 ?>

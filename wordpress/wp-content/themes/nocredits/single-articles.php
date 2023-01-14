@@ -59,13 +59,13 @@ if (have_posts()) :
 					Остались вопросы? мы скоро ответим
 				</h3>
 				<p>Оставьте свой вопрос юристу и получите бесплатный ответ в течение 48 часов</p>
-				<form class="main-content__form" action="#">
+				<form class="main-content__form">
 					<input type="text" placeholder="Ваше имя">
 					<input type="text" placeholder="Контактный телефон">
 					<input id="main-content__form__submit" type="submit" value="Нужна консультация">
 				</form>
-				<p>Заполняя форму, Вы соглашатесь на обработку персональных данных</p>
-			</div>
+                <p class="wait-call__p">Заполняя форму, Вы соглашатесь на <a class="wait-call__p" href="/policy/">обработку персональных данных</a></p>
+            </div>
 		</div>
 	</div>
 
@@ -78,7 +78,7 @@ get_footer();
 ?>
 <script type="application/javascript">
     function isVisible(elem) {
-//определяем виден ли конец страницы типа статья и если виден увеличиваем на 1 кол=во просмотров в базе через AJAX
+    //определяем виден ли конец страницы типа статья и если виден увеличиваем на 1 кол=во просмотров в базе через AJAX
         let coords = elem.getBoundingClientRect();
 
         let windowHeight = document.documentElement.clientHeight;
@@ -114,12 +114,4 @@ get_footer();
     }
     showVisible();
     window.onscroll = showVisible;
-    // window.addEventListener("scroll", function() {
-    //     console.clear();
-    //     console.log(
-    //         "↓↑ end:",
-    //
-    //         this.scrollHeight, this.scrollTop, this.clientHeight
-    //     );
-    // });
 </script>

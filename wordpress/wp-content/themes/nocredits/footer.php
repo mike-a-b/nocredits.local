@@ -112,7 +112,6 @@
     })
 </script>
 <?php wp_footer(); ?>
-
 </body>
 
 <script>
@@ -126,7 +125,7 @@
     }
 
     function gohome() {
-     window.location.href = '/';
+        window.location.href = '/';
     }
 </script>
 </html>
