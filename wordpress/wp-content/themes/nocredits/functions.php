@@ -5,8 +5,8 @@ add_action('after_setup_theme', 'nocredits_setup');
 add_action('wp_enqueue_scripts', 'nocredits_scripts');
 add_action('widgets_init', 'nocredits_widgets');
 add_action( 'init', 'nocredits_register_types' );
-add_action('admin_post_nopriv_nocredits_form_handle', 'nocredits_modalform');
-add_action('admin_post_nocredits_form_handle', 'nocredits_modalform');
+//add_action('admin_post_nopriv_nocredits_form_handle', 'nocredits_modalform');
+//add_action('admin_post_nocredits_form_handle', 'nocredits_modalform');
 add_action('wp_ajax_nopriv_sendModalForm', 'nocredits_modalform_handler');
 add_action('wp_ajax_sendModalForm', 'nocredits_modalform_handler');
 add_action('wp_ajax_nopriv_setViews', 'nocredits_count_handler');
@@ -118,30 +118,30 @@ function nocredits_register_types() {
 		'supports'            => ['title', 'editor'],
 		'has_archive' => true
 	]);
-	register_post_type( 'orders', [
-		'labels' => [
-			'name'               => 'Заявки на консультацию юристу', // основное название для типа записи
-			'singular_name'      => 'Заявки на консультацию юристу', // название для одной записи этого типа
-			'add_new'            => 'Добавить заявку на консультацию', // для добавления новой записи
-			'add_new_item'       => 'Добавить заявку на консультацию', // заголовка у вновь создаваемой записи в админ-панели.
-			'edit_item'          => 'Редактировать заявку на консультацию ', // для редактирования типа записи
-			'new_item'           => 'Новый заявка на консультацию', // текст новой записи
-			'view_item'          => 'Смотреть заявку на консультацию', // для просмотра записи этого типа.
-			'search_items'       => 'Искать заявку на консультацию', // для поиска по этим типам записи
-			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
-			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
-			'parent_item_colon'  => '', // для родителей (у древовидных типов)
-			'menu_name'          => 'Заявки на консультацию юристу', // название меню
-		],
-		'public'              => false,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'menu_position'       => 13,
-		'menu_icon'           => 'dashicons-format-status',
-		'hierarchical'        => false,
-		'supports'            => ['title', 'editor'],
-		'has_archive' => false
-	]);
+//	register_post_type( 'orders', [
+//		'labels' => [
+//			'name'               => 'Заявки на консультацию юристу', // основное название для типа записи
+//			'singular_name'      => 'Заявки на консультацию юристу', // название для одной записи этого типа
+//			'add_new'            => 'Добавить заявку на консультацию', // для добавления новой записи
+//			'add_new_item'       => 'Добавить заявку на консультацию', // заголовка у вновь создаваемой записи в админ-панели.
+//			'edit_item'          => 'Редактировать заявку на консультацию ', // для редактирования типа записи
+//			'new_item'           => 'Новый заявка на консультацию', // текст новой записи
+//			'view_item'          => 'Смотреть заявку на консультацию', // для просмотра записи этого типа.
+//			'search_items'       => 'Искать заявку на консультацию', // для поиска по этим типам записи
+//			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+//			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+//			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+//			'menu_name'          => 'Заявки на консультацию юристу', // название меню
+//		],
+//		'public'              => false,
+//		'show_ui'             => true,
+//		'show_in_menu'        => true,
+//		'menu_position'       => 13,
+//		'menu_icon'           => 'dashicons-format-status',
+//		'hierarchical'        => false,
+//		'supports'            => ['title', 'editor'],
+//		'has_archive' => false
+//	]);
 }
 //начальные настройки кастомной темы
 function nocredits_setup() {
@@ -157,7 +157,8 @@ function nocredits_scripts() {
 		(get_template_directory_uri() . '/assets/src/scss/styles.css'),
 		[], '1.0.0', 'all' );
 	wp_enqueue_script('jquery');
-	wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/src/js/main.js', array('jquery'), false, true);
+//	wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/src/js/main.js', array('jquery'), false, true);
+//	wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/src/js/main.js', array(), false, true);
 }
 //регистрация зон вывода, виджетов кастомных
 function nocredits_widgets() {
@@ -207,9 +208,10 @@ function nocredits_modalform() {
 function nocredits_modalform_handler() {
 	$name = $_POST['username'] ? wp_strip_all_tags($_POST['username']) : 'Аноним';
 	$code = $_POST['user_countrycode'] ? wp_strip_all_tags($_POST['user_countrycode']) : '+7';
-	$phone = $_POST['user_phone'];
-	$email = $_POST['usermail'] ? wp_strip_all_tags($_POST['usermail']) : '+7';
-	$question = $_POST['user_phone'] ? wp_strip_all_tags($_POST['user_question']) : '-------';
+	$phone = $_POST['user_telephone'] ? wp_strip_all_tags($_POST['user_telephone']): 'Нет телефона';
+	$email = $_POST['usermail'] ? wp_strip_all_tags($_POST['usermail']) : 'Не указана почта';
+	$question = $_POST['user_question'] ? wp_strip_all_tags($_POST['user_question']) : '---НЕТ ВОПРОСА---';
+	$agree = $_POST['user_policy_agree'] ? wp_strip_all_tags($_POST['user_policy_agree']) : true;
 	if($_POST['action']){
 		$post_id = wp_insert_post(wp_slash([
 			'post_title' => 'Заявка / вопрос №= ',
@@ -220,7 +222,7 @@ function nocredits_modalform_handler() {
 				'ID'           => $post_id,
 				'post_title'   => 'Заявка / вопрос № ' . $post_id
 			] );
-			$date = get_the_date( $post_id );
+			$date = get_the_date('n-j-Y', $post_id );
 			update_field( 'nocredits_questions_name', $name, $post_id );
 			update_field( 'nocredits_questions_telephone', $code . $phone, $post_id );
 			update_field( 'nocredits_question_date', $date, $post_id );
@@ -228,9 +230,8 @@ function nocredits_modalform_handler() {
 //			update_field( 'nocredits_question_status', 'new', $post_id );
 			//		wp_mail('')
 		} else echo "BAD BAD BAD ". $post_id;
-
 	}
-	header('Location: '. home_url());
+//	header('Location: '. home_url());
 }
 function nocredits_count_handler() {
 //	echo var_dump($_POST);

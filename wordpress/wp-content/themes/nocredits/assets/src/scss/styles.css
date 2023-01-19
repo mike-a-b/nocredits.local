@@ -10969,7 +10969,7 @@ input[type=button]:active {
   font-size: 13px;
   font-family: Gilroy, Serif;
   font-weight: 400;
-  width: 76px;
+  width: 35%;
 }
 .container-fluid.faq .faq__card .faq__card__description, .faq.container-sm .faq__card .faq__card__description, .faq.container-md .faq__card .faq__card__description, .faq.container-lg .faq__card .faq__card__description, .faq.container-xl .faq__card .faq__card__description, .faq.container-xxl .faq__card .faq__card__description {
   margin-top: 1rem;
@@ -11152,12 +11152,16 @@ input[type=button]:active {
   .container-fluid.faq .faq__question__image, .faq.container-sm .faq__question__image, .faq.container-md .faq__question__image, .faq.container-lg .faq__question__image, .faq.container-xl .faq__question__image, .faq.container-xxl .faq__question__image {
     display: none;
   }
-  .container-fluid.faq .faq__question .faq__question__textarea, .faq.container-sm .faq__question .faq__question__textarea, .faq.container-md .faq__question .faq__question__textarea, .faq.container-lg .faq__question .faq__question__textarea, .faq.container-xl .faq__question .faq__question__textarea, .faq.container-xxl .faq__question .faq__question__textarea, .container-fluid.faq .faq__question .faq__question__sendbutton, .faq.container-sm .faq__question .faq__question__sendbutton, .faq.container-md .faq__question .faq__question__sendbutton, .faq.container-lg .faq__question .faq__question__sendbutton, .faq.container-xl .faq__question .faq__question__sendbutton, .faq.container-xxl .faq__question .faq__question__sendbutton {
+  .container-fluid.faq .faq__question .faq_question_form, .faq.container-sm .faq__question .faq_question_form, .faq.container-md .faq__question .faq_question_form, .faq.container-lg .faq__question .faq_question_form, .faq.container-xl .faq__question .faq_question_form, .faq.container-xxl .faq__question .faq_question_form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .container-fluid.faq .faq__question .faq_question_form .faq__question__textarea, .faq.container-sm .faq__question .faq_question_form .faq__question__textarea, .faq.container-md .faq__question .faq_question_form .faq__question__textarea, .faq.container-lg .faq__question .faq_question_form .faq__question__textarea, .faq.container-xl .faq__question .faq_question_form .faq__question__textarea, .faq.container-xxl .faq__question .faq_question_form .faq__question__textarea, .container-fluid.faq .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-sm .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-md .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-lg .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-xl .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-xxl .faq__question .faq_question_form .faq__question__sendbutton {
     height: 60px;
     width: 100%;
   }
-  .container-fluid.faq .faq__question .faq__question__sendbutton, .faq.container-sm .faq__question .faq__question__sendbutton, .faq.container-md .faq__question .faq__question__sendbutton, .faq.container-lg .faq__question .faq__question__sendbutton, .faq.container-xl .faq__question .faq__question__sendbutton, .faq.container-xxl .faq__question .faq__question__sendbutton {
-    margin-top: 16px;
+  .container-fluid.faq .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-sm .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-md .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-lg .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-xl .faq__question .faq_question_form .faq__question__sendbutton, .faq.container-xxl .faq__question .faq_question_form .faq__question__sendbutton {
     font-size: 16px;
     margin: 0;
   }
@@ -11750,6 +11754,9 @@ input[type=button]:active {
   color: #fff;
   padding: 20px 36px;
   border-radius: 11px;
+}
+.container-fluid.video .video__endarticle input:hover, .video.container-sm .video__endarticle input:hover, .video.container-md .video__endarticle input:hover, .video.container-lg .video__endarticle input:hover, .video.container-xl .video__endarticle input:hover, .video.container-xxl .video__endarticle input:hover {
+  color: #2C4D84;
 }
 .container-fluid.video .video__endarticle .video__endarticle__rightcolumn, .video.container-sm .video__endarticle .video__endarticle__rightcolumn, .video.container-md .video__endarticle .video__endarticle__rightcolumn, .video.container-lg .video__endarticle .video__endarticle__rightcolumn, .video.container-xl .video__endarticle .video__endarticle__rightcolumn, .video.container-xxl .video__endarticle .video__endarticle__rightcolumn {
   padding-left: 80px;
@@ -13481,7 +13488,7 @@ input[type=button]:active {
   cursor: pointer;
   display: block;
   top: 3px;
-  left: 20px;
+  left: 32px;
   font-family: "Gilroy", Serif;
   font-style: normal;
   font-weight: 400;

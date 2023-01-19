@@ -13,15 +13,17 @@
     <link rel="canonical" href="<?php ?>" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Forum">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imask"></script>
     <?php wp_head(); ?>
 </head>
-<body class="bubu">
+<body>
 <div class="container">
 	<div class="row header">
 		<div class="col-1">
             <div itemscope itemtype="http://schema.org/Organization">
-                <a itemprop="url" href="<?php echo get_home_url(); ?>"></a>
-                <img  class="logo" itemprop="logo" src="<?php echo get_template_directory_uri(). '/assets/src/images/logo.png'; ?>" />
+                <a itemprop="url" href="<?php echo get_home_url(); ?>">
+                    <img  class="logo" itemprop="logo" src="<?php echo get_template_directory_uri(). '/assets/src/images/logo.png'; ?>" />
+                </a>
             </div>
 		</div>
 		<div class="col-11">

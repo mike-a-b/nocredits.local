@@ -755,7 +755,7 @@ input[type=button] {
    font-size:13px;
    font-family: Gilroy, Serif;
    font-weight:400;
-   width:76px;
+   width:35%;
   }
   .faq__card__description {
    margin-top:1rem;
@@ -952,15 +952,20 @@ input[type=button] {
    display: none;
   }
   .faq__question {
-   .faq__question__textarea, .faq__question__sendbutton {
-    height: 60px;
-    width: 100%;
+   .faq_question_form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .faq__question__textarea, .faq__question__sendbutton {
+     height: 60px;
+     width: 100%;
+    }
+    .faq__question__sendbutton {
+     font-size: 16px;
+     margin: 0;
+    }
    }
-   .faq__question__sendbutton {
-    margin-top: 16px;
-    font-size: 16px;
-    margin: 0;
-   }
+
    form > div {
     flex-direction: column;
 
@@ -1563,6 +1568,9 @@ input[type=button] {
    color:#fff;
    padding:20px 36px;
    border-radius: 11px;
+   &:hover{
+    color: #2C4D84;
+   }
   }
   .video__endarticle__rightcolumn {
    padding-left: 80px;

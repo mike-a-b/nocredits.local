@@ -90,7 +90,7 @@ get_header();
 				<ul class="article2__footer__minus-list">
 					<li>Стоит от 50 тысяч рублей и больше </li>
 					<li>Может длиться до 3 лет (реструктуризация)</li>
-					<li>Залоговое имущество реализуется, даже если<br></be> жилье единственное (реализация)</li>
+					<li>Залоговое имущество реализуется, даже если<br> жилье единственное (реализация)</li>
 					<li>Кредитная история испорчена (но из-за самих долгов)</li>
 				</ul>
 			</div>
@@ -127,7 +127,7 @@ get_header();
 			]);
 			global $post;
 			foreach($posts as $post) :
-			setup_postdata($post)
+			    setup_postdata($post)
 			?>
 			<div class="col faq_c">
 				<div class="faq__card ">
@@ -156,13 +156,10 @@ get_header();
                     <img src="<?php echo get_template_directory_uri(). '/assets/src/images/woman_ellipse.png'?>" alt="Онлайн-консультация с юристом" class="faq__question__womanimg--mobile" >
                     <img src="<?php echo get_template_directory_uri(). '/assets/src/images/emblem_mobile.png'?>" alt="Онлайн-консультация с юристом" class="faq__imageemblema--mobile">
                 </div>
-				<form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
-					<form>
-						<textarea class="faq__question__textarea" name="question"  placeholder="Задать вопрос"></textarea>
-                        <input type="hidden" name="action" value="nocredits_form_handle">
-						<button type="submit" class="btn btn-primary faq__question__sendbutton">Отправить
-						</button>
-					</form>
+				<form style="display: flex;flex-direction: row;" class="faq_question_form" action="">
+                    <textarea class="faq__question__textarea" name="question"  placeholder="Задать вопрос"></textarea>
+                    <input type="hidden" name="action" value="nocredits_form_handle">
+                    <input type="submit" class="btn btn-primary faq__question__sendbutton" value="Отправить">
 				</form>
 			</div>
 			<div class="col-4 faq__question__image">
@@ -324,7 +321,7 @@ get_header();
 		<div class="row">
 			<div class="col-4">
 				<img src="<?php echo get_template_directory_uri(). '/assets/src/images/woman_endarticle.png'?>" alt="Бесплатная консультация">
-				<input type="button" class="btn btn-primary" value="Бесплатная консультация">
+				<input type="button" class="btn btn-primary" value="Бесплатная консультация" data-bs-toggle="modal" data-bs-target="#modal__question">
 			</div>
 			<div class="col-8 video__endarticle__rightcolumn">
 				<h6>Полезно знать</h6>
