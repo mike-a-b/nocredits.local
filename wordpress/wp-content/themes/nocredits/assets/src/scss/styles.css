@@ -10692,7 +10692,7 @@ input[type=button]:active {
   background-size: 28px 28px;
   background-repeat: no-repeat;
   margin-top: 8px;
-  height: 28px;
+  height: auto;
   margin-bottom: 8px;
   font-family: "Gilroy";
   font-style: normal;
@@ -10700,6 +10700,7 @@ input[type=button]:active {
   font-size: 18px;
   line-height: 125%;
   color: #1A1A1B;
+  min-height: 28px;
 }
 .container-fluid.article2 .article2__footer ul.article2__footer__minus-list, .article2.container-sm .article2__footer ul.article2__footer__minus-list, .article2.container-md .article2__footer ul.article2__footer__minus-list, .article2.container-lg .article2__footer ul.article2__footer__minus-list, .article2.container-xl .article2__footer ul.article2__footer__minus-list, .article2.container-xxl .article2__footer ul.article2__footer__minus-list {
   padding-left: 0;

@@ -74,7 +74,7 @@ get_header();
 			</div>
 		</div>
 		<div class="row">
-			<div class="col col-sm-12">
+			<div class="col">
 				<ul class="article2__footer__plus-list">
 					<li>Полное освобождение от долгов</li>
 					<li>Снятие ареста с имущества (которое наложили
@@ -86,7 +86,7 @@ get_header();
 					<li>Долги по кредитам, ипотеке, налогам списываются</li>
 				</ul>
 			</div>
-			<div class="col col-sm-12">
+			<div class="col">
 				<ul class="article2__footer__minus-list">
 					<li>Стоит от 50 тысяч рублей и больше </li>
 					<li>Может длиться до 3 лет (реструктуризация)</li>
@@ -299,8 +299,8 @@ get_header();
 			</div>
             <div class="col-8 col-sm-8 col-xs-8">
                 <div class="video__header__right">
-                    <a href="#"><img src="<?php echo get_template_directory_uri(). '/assets/src/images/arrowleft_icon.png'?>" alt="Завершенные дела"></a>
-                    <a href="#"><img src="<?php echo get_template_directory_uri(). '/assets/src/images/arrowright_icon.png'?>" alt="Завершенные дела"></a>
+<!--                    <a href="#"><img src="--><?php //echo get_template_directory_uri(). '/assets/src/images/arrowleft_icon.png'?><!--" alt="Завершенные дела"></a>-->
+<!--                    <a href="#"><img src="--><?php //echo get_template_directory_uri(). '/assets/src/images/arrowright_icon.png'?><!--" alt="Завершенные дела"></a>-->
                 </div>
             </div>
 		</div>

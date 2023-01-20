@@ -472,7 +472,7 @@ input[type=button] {
     background-size: 28px 28px;
     background-repeat: no-repeat;
     margin-top:8px;
-    height: 28px;
+    height: auto;
     margin-bottom:8px;
     font-family: 'Gilroy';
     font-style: normal;
@@ -480,6 +480,7 @@ input[type=button] {
     font-size: 18px;
     line-height: 125%;
     color: #1A1A1B;
+    min-height: 28px;
    }
   }
   ul.article2__footer__minus-list {

@@ -228,7 +228,14 @@ function nocredits_modalform_handler() {
 			update_field( 'nocredits_question_date', $date, $post_id );
 			update_field( 'nocredits_question_email', $email, $post_id );
 //			update_field( 'nocredits_question_status', 'new', $post_id );
-			//		wp_mail('')
+			$headers = array(
+				'From: Site <mail@yurist-bfl.ru>',
+				'content-type: text/html'
+			);
+
+			wp_mail('bancrotinfo@yandex.ru', 'Пользователем создан вопрос юристу или заявка на консультацию на сайте!',
+			"Пользователь: ". $name." создал заявку на консультацию или задал вопрос юристу. Его вопрос: "
+			. $question . ". Телефон: ". $code.$phone ." Почта для связи с этим клиентом: " .$email, $headers);
 		} else echo "BAD BAD BAD ". $post_id;
 	}
 //	header('Location: '. home_url());
