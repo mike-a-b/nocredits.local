@@ -22,8 +22,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col" style="display: flex; gap: 2rem;">
+		<div class="row" style="gap:24px;">
 				<?php
 				$my_posts = get_posts( array(
 					'numberposts' => 20,
@@ -52,7 +51,6 @@ get_header();
 				<?php endforeach;
 					wp_reset_postdata();
 				?>
-			</div>
 		</div>
 	</div>
 </div>
@@ -64,12 +62,13 @@ get_header();
 					не нашли нужного ответа?
 				</h3>
 				<p class="wait-call__content" style="font-size: 18px;">Оставьте свой вопрос юристу и получите бесплатный ответ в течение 48 часов</p>
-				<form action="#">
-					<input type="text" placeholder="Ваш вопрос">
-					<input type="text" placeholder="Ваше имя">
-					<input type="text" placeholder="Контактный телефон">
-					<input type="submit" value="Жду звонка">
-				</form>
+                <form>
+                    <input id="questions_question" type="text" placeholder="Ваш вопрос" name="user_question" required>
+                    <input id="questions_name" type="text" placeholder="Ваше имя" name="username" required>
+                    <input id="questions_phone" type="text" placeholder="Контактный телефон" name="user_telephone">
+                    <input id="questions_sendButton" type="submit" value="Жду звонка" class="sendButton"
+                           data-href="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" disabled>
+                </form>
                 <p class="wait-call__p">Заполняя форму, Вы соглашатесь на <a class="wait-call__p" href="/policy/">обработку персональных данных</a></p>
             </div>
 		</div>
@@ -80,3 +79,19 @@ get_header();
 </div>
 
 <?php get_footer(); ?>
+<script type="application/javascript">
+    let phoneMask4 = IMask(
+        document.getElementById('questions_phone'), {
+            mask: '+{7}(000)000-00-00'
+        });
+    var nameMask4 = IMask(
+        document.getElementById('questions_name'), {
+            mask: '[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]'
+        });
+
+    let questions = document.querySelector('#questions_question');
+    questions.addEventListener('change', function() {
+        if(questions.value !== '') document.getElementById('questions_sendButton').disabled= false;
+    });
+
+</script>

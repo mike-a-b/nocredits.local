@@ -64,10 +64,11 @@ get_header();
 						мы поможем списать ваши долги
 					</h3>
 					<p>Оставьте свой вопрос юристу и получите бесплатный ответ в течение 48 часов</p>
-					<form class="main-content__form" action="#">
-						<input type="text" placeholder="Ваше имя">
-						<input type="text" placeholder="Контактный телефон">
-						<input id="main-content__form__submit" type="submit" value="Нужна консультация">
+					<form class="main-content__form">
+                        <input id="cases_name" type="text" placeholder="Ваше имя" name="username" required>
+                        <input id="cases_phone" type="text" placeholder="Контактный телефон" name="user_telephone">
+                        <input id="cases__form__submit" type="submit" value="Нужна консультация" class="sendButton"
+                               data-href="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" disabled>
 					</form>
 					<p>Заполняя форму, Вы соглашатесь на обработку персональных данных</p>
 				</div>
@@ -77,3 +78,18 @@ get_header();
 <?php
 get_footer();
 ?>
+<script type="application/javascript">
+    let phoneMask6 = IMask(
+        document.getElementById('cases_phone'), {
+            mask: '+{7}(000)000-00-00'
+        });
+    var nameMask6 = IMask(
+        document.getElementById('cases_name'), {
+            mask: '[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]'
+        });
+
+    let cases_name = document.querySelector('#cases_name');
+    cases_name.addEventListener('change', function() {
+        if(cases_name.value !== '') document.getElementById('cases__form__submit').disabled= false;
+    });
+</script>

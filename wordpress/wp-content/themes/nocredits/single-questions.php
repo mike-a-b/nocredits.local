@@ -43,7 +43,7 @@ if(isset($comment)) :
                         <p>
                             <?php the_field('nocredits_comment'); ?>
                         </p>
-                        <input type="button" class="btn btn-primary" value="Связаться с юристом">
+                        <input type="button" class="btn btn-primary" value="Связаться с юристом" data-bs-toggle="modal" data-bs-target="#modal__question">
                     </div>
                 </div>
             </div>

@@ -110,6 +110,7 @@ p {
  font-family: Gilroy, Serif;
  color:#495057;
 }
+
 input[type=button] {
  padding: 16px 32px;
  background: #2C4D84;
@@ -150,6 +151,9 @@ input[type=button] {
   &:hover {
    text-decoration: underline;
   }
+ }
+ .row > * {
+  padding:0;
  }
  .navbar{
   box-sizing: border-box;
@@ -737,16 +741,25 @@ input[type=button] {
   color:#2C4D84;
   margin-right:0;
  }
+ .row {
+  .faq_c{
+
+  }
+ }
+ .faq_c {
+  padding:0;
+ }
  .faq__card {
   background: #fff;
   box-shadow: 0px 7px 60px -11px rgba(26, 26, 27, 0.09);
   border-radius: 12px;
-  max-width:578px;
+  max-width:590px;
   max-height: 201px;
   width:100%;
+  min-width: 560px;
   height:100%;
   padding: 23px 40px;
-  margin-bottom:24px;
+  //margin-bottom:24px;
   z-index: 100;
   position: relative;
   .faq__card__name {
@@ -765,6 +778,7 @@ input[type=button] {
    font-family: Gilroy,serif;
    line-height: 27px;
    max-width:458px;
+   min-height: 73px;
    margin-bottom: 0;
    p {
     font-family: 'Gilroy';
@@ -847,8 +861,19 @@ input[type=button] {
    text-align: center;
   }
  }
-
+ .faq_questions_allquestions {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 125%;
+  color: #2C4D84;
+  text-decoration: none;
+  text-transform: none;
+  margin-top: 42px;
+ }
  .faq__question {
+  margin-top:120px;
   form > form {
    display: flex;
    align-content: flex-start;
@@ -2127,7 +2152,9 @@ input[type=button] {
  }
 }
 
-
+#cases__form__submit {
+ background-color: #fff;
+}
 .container-fluid.articles {
   h1.articles__h1 {
   margin-top: 95px;
@@ -2140,7 +2167,7 @@ input[type=button] {
   background-image: url("../images/articles_background.png");
   background-size: auto;
   background-repeat: no-repeat;
-  background-position: center;
+  //background-position: center;
   border-radius: 20px;
   padding:48px 52px;
   padding-top:20px;

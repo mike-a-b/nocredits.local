@@ -10394,6 +10394,9 @@ input[type=button]:active {
 .header a:hover {
   text-decoration: underline;
 }
+.header .row > * {
+  padding: 0;
+}
 .header .navbar {
   box-sizing: border-box;
   justify-content: space-around;
@@ -10950,16 +10953,19 @@ input[type=button]:active {
   color: #2C4D84;
   margin-right: 0;
 }
+.container-fluid.faq .faq_c, .faq.container-sm .faq_c, .faq.container-md .faq_c, .faq.container-lg .faq_c, .faq.container-xl .faq_c, .faq.container-xxl .faq_c {
+  padding: 0;
+}
 .container-fluid.faq .faq__card, .faq.container-sm .faq__card, .faq.container-md .faq__card, .faq.container-lg .faq__card, .faq.container-xl .faq__card, .faq.container-xxl .faq__card {
   background: #fff;
   box-shadow: 0px 7px 60px -11px rgba(26, 26, 27, 0.09);
   border-radius: 12px;
-  max-width: 578px;
+  max-width: 590px;
   max-height: 201px;
   width: 100%;
+  min-width: 560px;
   height: 100%;
   padding: 23px 40px;
-  margin-bottom: 24px;
   z-index: 100;
   position: relative;
 }
@@ -10978,6 +10984,7 @@ input[type=button]:active {
   font-family: Gilroy, serif;
   line-height: 27px;
   max-width: 458px;
+  min-height: 73px;
   margin-bottom: 0;
 }
 .container-fluid.faq .faq__card .faq__card__description p, .faq.container-sm .faq__card .faq__card__description p, .faq.container-md .faq__card .faq__card__description p, .faq.container-lg .faq__card .faq__card__description p, .faq.container-xl .faq__card .faq__card__description p, .faq.container-xxl .faq__card .faq__card__description p {
@@ -11057,6 +11064,20 @@ input[type=button]:active {
   background: #fff;
   border-radius: 12px;
   text-align: center;
+}
+.container-fluid.faq .faq_questions_allquestions, .faq.container-sm .faq_questions_allquestions, .faq.container-md .faq_questions_allquestions, .faq.container-lg .faq_questions_allquestions, .faq.container-xl .faq_questions_allquestions, .faq.container-xxl .faq_questions_allquestions {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 125%;
+  color: #2C4D84;
+  text-decoration: none;
+  text-transform: none;
+  margin-top: 42px;
+}
+.container-fluid.faq .faq__question, .faq.container-sm .faq__question, .faq.container-md .faq__question, .faq.container-lg .faq__question, .faq.container-xl .faq__question, .faq.container-xxl .faq__question {
+  margin-top: 120px;
 }
 .container-fluid.faq .faq__question form > form, .faq.container-sm .faq__question form > form, .faq.container-md .faq__question form > form, .faq.container-lg .faq__question form > form, .faq.container-xl .faq__question form > form, .faq.container-xxl .faq__question form > form {
   display: flex;
@@ -12271,6 +12292,10 @@ input[type=button]:active {
   }
 }
 
+#cases__form__submit {
+  background-color: #fff;
+}
+
 .container-fluid.articles h1.articles__h1, .articles.container-sm h1.articles__h1, .articles.container-md h1.articles__h1, .articles.container-lg h1.articles__h1, .articles.container-xl h1.articles__h1, .articles.container-xxl h1.articles__h1, .container-fluid.articles .articles__h1.h1, .articles.container-sm .articles__h1.h1, .articles.container-md .articles__h1.h1, .articles.container-lg .articles__h1.h1, .articles.container-xl .articles__h1.h1, .articles.container-xxl .articles__h1.h1 {
   margin-top: 95px;
   margin-bottom: 64px;
@@ -12282,7 +12307,6 @@ input[type=button]:active {
   background-image: url("../images/articles_background.png");
   background-size: auto;
   background-repeat: no-repeat;
-  background-position: center;
   border-radius: 20px;
   padding: 48px 52px;
   padding-top: 20px;
@@ -13506,6 +13530,7 @@ input[type=button]:active {
 }
 .modal-content .btn {
   width: 100%;
+  background-color: #2C4D84;
   font-family: "Gilroy", Serif;
   font-style: normal;
   font-weight: 500;
@@ -13587,15 +13612,9 @@ input[type=button]:active {
 @media (max-width: 1800px) {
   .container {
     max-width: 1180px;
-    padding-left: 2%;
-    padding-right: 2%;
   }
 }
 @media (min-width: 768px) and (max-width: 1600px) {
-  .container {
-    padding-left: 2%;
-    padding-right: 2%;
-  }
   .footer__menu {
     width: 100%;
   }

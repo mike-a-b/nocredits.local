@@ -119,7 +119,7 @@ get_header();
                 </div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" style="gap:24px;">
 			<?php
 			$posts = get_posts([
 				'numberposts' => 20,
@@ -135,7 +135,7 @@ get_header();
 						<?php the_title(); ?>
 					</div>
 					<div class="faq__card__description">
-						<?php the_content(); ?>
+						<?php the_excerpt(); ?>
                         <a href="<?php the_permalink(); ?>">
                             <div class="faq__card__readmore">
                             </div>
@@ -148,6 +148,9 @@ get_header();
 			</div>
             <?php endforeach; wp_reset_postdata(); ?>
 		</div>
+        <div class="row">
+            <a class="faq_questions_allquestions" href="/questions/"> Смотреть все вопросы  <b> > </b></a>
+        </div>
 		<div class="row faq__question">
 			<div class="col-8">
 				<h1>Онлайн-консультация с юристом</h1>
@@ -156,12 +159,12 @@ get_header();
                     <img src="<?php echo get_template_directory_uri(). '/assets/src/images/woman_ellipse.png'?>" alt="Онлайн-консультация с юристом" class="faq__question__womanimg--mobile" >
                     <img src="<?php echo get_template_directory_uri(). '/assets/src/images/emblem_mobile.png'?>" alt="Онлайн-консультация с юристом" class="faq__imageemblema--mobile">
                 </div>
-				<form style="display: flex;flex-direction: row;" class="faq_question_form" action="">
-                    <textarea class="faq__question__textarea" name="question"  placeholder="Задать вопрос"></textarea>
-                    <input type="hidden" name="action" value="nocredits_form_handle">
-                    <input type="submit" class="btn btn-primary faq__question__sendbutton" value="Отправить">
+				<form style="display: flex;flex-direction: row;" class="faq_question_form">
+                    <textarea id="main_form3_textarea" class="faq__question__textarea" name="user_question" onchange="onchange1();" placeholder="Задать вопрос"></textarea>
+                    <input id="sendButton3" type="submit" class="btn btn-primary faq__question__sendbutton"  value="Отправить"
+                           data-href="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" disabled>
 				</form>
-			</div>
+            </div>
 			<div class="col-4 faq__question__image">
 				<img src="<?php echo get_template_directory_uri(). '/assets/src/images/woman_ellipse.png'?>" alt="Онлайн-консультация с юристом" class="faq__question__womanimg" >
 				<img src="<?php echo get_template_directory_uri(). '/assets/src/images/emblem.png'?>" alt="Онлайн-консультация с юристом" class="faq__image--emblema">
@@ -229,12 +232,14 @@ get_header();
 					не нашли нужного ответа?
 				</h3>
 				<p>Оставьте свой вопрос юристу и получите бесплатный ответ в течение 48 часов</p>
-				<form action="#">
-					<input type="text" placeholder="Ваш вопрос">
-					<input type="text" placeholder="Ваше имя">
-					<input type="text" placeholder="Контактный телефон">
-					<input type="submit" value="Жду звонка">
+				<form>
+					<input id="main_question" type="text" placeholder="Ваш вопрос" name="user_question" required>
+					<input id="main_name" type="text" placeholder="Ваше имя" name="username" required>
+					<input id="main_phone" type="text" placeholder="Контактный телефон" name="user_telephone">
+					<input id="sendButton2" type="submit" value="Жду звонка" class="sendButton"
+                           data-href="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" disabled>
 				</form>
+
                 <p class="wait-call__p">Заполняя форму, Вы соглашатесь на <a class="wait-call__p" href="/policy/">обработку персональных данных</a></p>
             </div>
 		</div>
@@ -345,9 +350,27 @@ get_header();
 		</div>
 	</div>
 </div>
-<script type="application/javascript">
 
-</script>
 <?php
 get_footer();
 ?>
+<script type="application/javascript">
+    let phoneMask2 = IMask(
+        document.getElementById('main_phone'), {
+            mask: '+{7}(000)000-00-00'
+        });
+    var nameMask2 = IMask(
+        document.getElementById('main_name'), {
+            mask: '[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]'
+        });
+
+    let question2 = document.querySelector('#main_question');
+    question2.addEventListener('change', function() {
+        if(question2.value !== '') document.getElementById('sendButton2').disabled= false;
+    });
+
+    function onchange1() {
+        document.getElementById('sendButton3').disabled= false;
+    }
+
+</script>

@@ -60,9 +60,10 @@ if (have_posts()) :
 				</h3>
 				<p>Оставьте свой вопрос юристу и получите бесплатный ответ в течение 48 часов</p>
 				<form class="main-content__form">
-					<input type="text" placeholder="Ваше имя">
-					<input type="text" placeholder="Контактный телефон">
-					<input id="main-content__form__submit" type="submit" value="Нужна консультация">
+                    <input id="articles_name" type="text" placeholder="Ваше имя" name="username" required>
+                    <input id="articles_phone" type="text" placeholder="Контактный телефон" name="user_telephone">
+					<input id="main-content__form__submit" type="submit" value="Нужна консультация" class="sendButton"
+                           data-href="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" disabled>
 				</form>
                 <p class="wait-call__p">Заполняя форму, Вы соглашатесь на <a class="wait-call__p" href="/policy/">обработку персональных данных</a></p>
             </div>
@@ -77,10 +78,23 @@ if (have_posts()) :
 get_footer();
 ?>
 <script type="application/javascript">
+    let phoneMask5 = IMask(
+        document.getElementById('articles_phone'), {
+            mask: '+{7}(000)000-00-00'
+        });
+    var nameMask5 = IMask(
+        document.getElementById('articles_name'), {
+            mask: '[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]'
+        });
+
+    let articlesname = document.querySelector('#articles_name');
+    articlesname.addEventListener('change', function() {
+        if(articlesname.value !== '') document.getElementById('main-content__form__submit').disabled= false;
+    });
+
     function isVisible(elem) {
     //определяем виден ли конец страницы типа статья и если виден увеличиваем на 1 кол=во просмотров в базе через AJAX
         let coords = elem.getBoundingClientRect();
-
         let windowHeight = document.documentElement.clientHeight;
         let topVisible = coords.top > 0 && coords.top < windowHeight;
         let bottomVisible = coords.bottom < windowHeight && coords.bottom > 0;
